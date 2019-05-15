@@ -3,7 +3,7 @@
 # Git Basics
 
 #### clone the existing repository.
-`git clone https://github.com/erosnemesis/CSS370.git`
+`git clone https://github.com/jeffmur/AS4.git`
 
 #### Execute the status command to see if your repo is in sync with the git server. Also shows you what files you have modified
 `git status`
