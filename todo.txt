@@ -1,0 +1,32 @@
+Hi Alex,
+Welcome to the todo.txt
+
+Not sure if you use Trello, however it is great for cross platform &
+teams. Link:
+
+OR
+
+* We can keep all todo's aka deliverables in here w/ current progress)
+
+Discord when possible (contact my cell)
+
+-------- Availabilty -------------
+
+Jeffrey:
+	Busy: MW: 1-10pm
+	      Memorial Day (Sun - Mon)
+
+	Best contacted over cell (425.698.024
+Nick:
+
+:
+--------Current Progress---------
+* Create mask header files for easier development
+* Use UML and architecture
+* Will work on customer for the next few days
+* Take care of transactions if possible &|| header files
+* 
+* I'll try to add notes as much as possible 
+*
+
+- Enjoy learning Github LMK if you have questions
