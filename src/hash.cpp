@@ -62,8 +62,11 @@ bool Hash::remove(int custID) {
         // if on vector delete
         if(it->data->ID == custID){
             delete it->data;
+            if(it->next != NULL)
+                table[index] = it->next;
+            else
+                table[index] = NULL;
             delete it;
-            table[index] = NULL;
             return true;
         }
         else {
