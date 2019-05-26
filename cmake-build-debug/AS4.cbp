@@ -136,9 +136,6 @@
 		<Unit filename="/home/jeffmur/UWB/343/AS4/src/return.h">
 			<Option target="AS4"/>
 		</Unit>
-		<Unit filename="/home/jeffmur/UWB/343/AS4/src/store.h">
-			<Option target="AS4"/>
-		</Unit>
 		<Unit filename="/home/jeffmur/UWB/343/AS4/src/transaction.h">
 			<Option target="AS4"/>
 		</Unit>

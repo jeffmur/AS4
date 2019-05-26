@@ -8,6 +8,7 @@ Customer::Customer(string last, string first, int id) {
 
 Customer::~Customer(){
     delete name;
+    name = NULL;
 }
 
 ostream& operator<<(ostream& output, const Customer& nd) {

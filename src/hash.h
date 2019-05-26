@@ -22,6 +22,7 @@ public:
     bool insert(Customer &customer);        // add NodeData (customer info)
     //bool retrieve(int key) const;
     //bool remove(int key) const;
+    void display();
 
 private:
     struct Node{

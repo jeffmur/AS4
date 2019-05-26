@@ -19,11 +19,15 @@ Jeffrey:
 	Best contacted over cell (425.698.024
 Nick:
 
-:
+
 --------Current Progress---------
 * Create mask header files for easier development
 * Use UML and architecture
-* Will work on customer for the next few days
+* Finished Customer and HashTable (vector & linked list)
+** No Memory Leaks with size 10
+** Size 100 would be O(1) in all cases but 
+** Size 10 is O(n) worst case, otherwise O(1) 
+*
 * Take care of transactions if possible &|| header files
 * 
 * I'll try to add notes as much as possible 

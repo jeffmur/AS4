@@ -22,6 +22,5 @@ add_executable(AS4
         src/nodedata.cpp
         src/nodedata.h
         src/return.h
-        src/store.h
         src/transaction.h
         TESTING.cpp)

@@ -8,16 +8,18 @@
 
 using namespace std;
 
-int main() {
+void buildCustomers(){
     ifstream infileC("/home/jeffmur/UWB/343/AS4/data/data4customers.txt");
+    //ifstream infileC("data/data4customers.txt");
+
     if (!infileC) {
         cout << "File could not be opened." << endl;
-        return 1;
+        return;
     }
     Hash test = Hash(10);
     for(;;){
         if(infileC.eof()) { break; }
-
+        if(infileC.bad()) { continue; }
         string last, first;
         int id = -1;
         infileC >> id >> last >> first;
@@ -28,5 +30,9 @@ int main() {
             test.insert(*c);
         }
     }
+    test.display();
+}
 
+int main() {
+    buildCustomers();
 }
