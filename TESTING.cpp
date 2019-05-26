@@ -31,6 +31,13 @@ void buildCustomers(){
         }
     }
     test.display();
+    bool found = test.find(1234);
+    cout << "Found? " << ( found ? "True" : "False") << endl;
+
+    bool deleted = test.remove(1234);
+    cout << "Deleted? " << ( deleted ? "True" : "False") << endl;
+
+    test.display();
 }
 
 int main() {
