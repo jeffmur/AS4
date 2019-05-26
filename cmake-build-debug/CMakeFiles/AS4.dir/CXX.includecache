@@ -1,0 +1,40 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/jeffmur/UWB/343/AS4/src/customer.h
+nodedata.h
+/home/jeffmur/UWB/343/AS4/src/nodedata.h
+string
+-
+vector
+-
+iostream
+-
+fstream
+-
+
+/home/jeffmur/UWB/343/AS4/src/hash.cpp
+hash.h
+/home/jeffmur/UWB/343/AS4/src/hash.h
+
+/home/jeffmur/UWB/343/AS4/src/hash.h
+customer.h
+/home/jeffmur/UWB/343/AS4/src/customer.h
+vector
+-
+string
+-
+
+/home/jeffmur/UWB/343/AS4/src/nodedata.h
+string
+-
+iostream
+-
+fstream
+-
+
