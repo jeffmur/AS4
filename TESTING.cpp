@@ -24,10 +24,9 @@ int main() {
 
         // valid Customer ID
         if (id > 999 && id <= 9999) {
-            Customer c = Customer(last, first, id);
-            test.insert(&c);
+            Customer *c = new Customer(last, first, id);
+            test.insert(*c);
         }
-
     }
 
 }
