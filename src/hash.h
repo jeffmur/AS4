@@ -6,30 +6,30 @@
 #define HASH_H
 
 #include "customer.h"
-#include <list>
+#include <vector>
 #include <string>
 
 using namespace std;
 
 class Hash {
 
-    int SIZE = 100;
-    list<Customer*> *table;
-
 public:
     Hash(int size);							// constructor of hash table
     ~Hash();								// destructor, calls makeEmpty
-    bool isEmpty() const;					// true if table is empty, otherwise false
-    void makeEmpty();						// make the table empty so isEmpty returns true
-    bool insert(NodeData* item);            // add NodeData (customer info)
-    bool retrieve(NodeData &targetData, int key) const;
+    //bool isEmpty() const;					// true if table is empty, otherwise false
+    //void makeEmpty();						// make the table empty so isEmpty returns true
+    int hashFunction(int id);               // ID % size
+    bool insert(Customer* customer);        // add NodeData (customer info)
+    //bool retrieve(int key) const;
+    //bool remove(int key) const;
 
 private:
-
-
-
-// utility functions
-
+    struct Node{
+        Customer* data = NULL;
+        Node* next = nullptr;
+    };
+    int SIZE = 10;
+    vector<Node*> table;
 
 };
 
