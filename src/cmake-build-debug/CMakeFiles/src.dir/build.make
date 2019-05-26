@@ -57,27 +57,27 @@ include CMakeFiles/src.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/src.dir/flags.make
 
-CMakeFiles/src.dir/main.cpp.o: CMakeFiles/src.dir/flags.make
-CMakeFiles/src.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jeffmur/UWB/343/AS4/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/src.dir/main.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/src.dir/main.cpp.o -c /home/jeffmur/UWB/343/AS4/src/main.cpp
+CMakeFiles/src.dir/TESTING.cpp.o: CMakeFiles/src.dir/flags.make
+CMakeFiles/src.dir/TESTING.cpp.o: ../TESTING.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jeffmur/UWB/343/AS4/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/src.dir/TESTING.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/src.dir/TESTING.cpp.o -c /home/jeffmur/UWB/343/AS4/src/TESTING.cpp
 
-CMakeFiles/src.dir/main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/src.dir/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jeffmur/UWB/343/AS4/src/main.cpp > CMakeFiles/src.dir/main.cpp.i
+CMakeFiles/src.dir/TESTING.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/src.dir/TESTING.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jeffmur/UWB/343/AS4/src/TESTING.cpp > CMakeFiles/src.dir/TESTING.cpp.i
 
-CMakeFiles/src.dir/main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/src.dir/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jeffmur/UWB/343/AS4/src/main.cpp -o CMakeFiles/src.dir/main.cpp.s
+CMakeFiles/src.dir/TESTING.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/src.dir/TESTING.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jeffmur/UWB/343/AS4/src/TESTING.cpp -o CMakeFiles/src.dir/TESTING.cpp.s
 
 # Object files for target src
 src_OBJECTS = \
-"CMakeFiles/src.dir/main.cpp.o"
+"CMakeFiles/src.dir/TESTING.cpp.o"
 
 # External object files for target src
 src_EXTERNAL_OBJECTS =
 
-src: CMakeFiles/src.dir/main.cpp.o
+src: CMakeFiles/src.dir/TESTING.cpp.o
 src: CMakeFiles/src.dir/build.make
 src: CMakeFiles/src.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/jeffmur/UWB/343/AS4/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable src"

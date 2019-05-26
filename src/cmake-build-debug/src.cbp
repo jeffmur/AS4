@@ -84,7 +84,7 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/jeffmur/UWB/343/AS4/src/main.cpp">
+		<Unit filename="/home/jeffmur/UWB/343/AS4/src/TESTING.cpp">
 			<Option target="src"/>
 		</Unit>
 		<Unit filename="/home/jeffmur/UWB/343/AS4/src/CMakeLists.txt">
