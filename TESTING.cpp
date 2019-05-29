@@ -33,10 +33,10 @@ void buildCustomers(){
     test.display();
 
     bool found = test.find(4444);
-    cout << "Found? " << ( found ? "True" : "False") << endl;
+    cout << "Found 4444? " << ( found ? "True" : "False") << endl;
 
     bool deleted = test.remove(2000);
-    cout << "Deleted? " << ( deleted ? "True" : "False") << endl;
+    cout << "Deleted 2000? " << ( deleted ? "True" : "False") << endl;
 
     test.display();
 }
