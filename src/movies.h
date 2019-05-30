@@ -29,8 +29,13 @@ public:
     bool operator<=(const Movies &) const;
     bool operator>=(const Movies &) const;
 
+    int quanity;
+
 private:
-    string data;
+    char genre;
+    string director;
+    string title;
+    int releaseYear;
 };
 
 #endif

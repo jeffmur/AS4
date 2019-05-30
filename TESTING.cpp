@@ -8,21 +8,18 @@
 
 using namespace std;
 
-void buildCustomers(){
-    ifstream infileC("/home/jeffmur/UWB/343/AS4/data/data4customers.txt");
-    //ifstream infileC("data/data4customers.txt");
-
-    if (!infileC) {
+void buildCustomers(ifstream& infile){
+    if (!infile) {
         cout << "File could not be opened." << endl;
         return;
     }
     Hash test = Hash(10);
     for(;;){
-        if(infileC.eof()) { break; }
-        if(infileC.bad()) { continue; }
+        if(infile.eof()) { break; }
+        if(infile.bad()) { continue; }
         string last, first;
         int id = -1;
-        infileC >> id >> last >> first;
+        infile >> id >> last >> first;
 
         // valid Customer ID
         if (id > 999 && id <= 9999) {
@@ -42,5 +39,7 @@ void buildCustomers(){
 }
 
 int main() {
-    buildCustomers();
+    ifstream infileC("/home/jeffmur/UWB/343/AS4/data/data4customers.txt");
+    //ifstream infileC("data/data4customers.txt");
+    buildCustomers(infileC);
 }

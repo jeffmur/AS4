@@ -103,6 +103,9 @@
 		<Unit filename="/home/jeffmur/UWB/343/AS4/src/borrow.h">
 			<Option target="AS4"/>
 		</Unit>
+		<Unit filename="/home/jeffmur/UWB/343/AS4/src/bst.cpp">
+			<Option target="AS4"/>
+		</Unit>
 		<Unit filename="/home/jeffmur/UWB/343/AS4/src/bst.h">
 			<Option target="AS4"/>
 		</Unit>
@@ -122,6 +125,9 @@
 			<Option target="AS4"/>
 		</Unit>
 		<Unit filename="/home/jeffmur/UWB/343/AS4/src/inventory.h">
+			<Option target="AS4"/>
+		</Unit>
+		<Unit filename="/home/jeffmur/UWB/343/AS4/src/movies.cpp">
 			<Option target="AS4"/>
 		</Unit>
 		<Unit filename="/home/jeffmur/UWB/343/AS4/src/movies.h">

@@ -6,6 +6,10 @@ CMakeFiles/AS4.dir/TESTING.cpp.o
  /home/jeffmur/UWB/343/AS4/src/customer.h
  /home/jeffmur/UWB/343/AS4/src/hash.h
  /home/jeffmur/UWB/343/AS4/src/nodedata.h
+CMakeFiles/AS4.dir/src/bst.cpp.o
+ /home/jeffmur/UWB/343/AS4/src/bst.cpp
+ /home/jeffmur/UWB/343/AS4/src/bst.h
+ /home/jeffmur/UWB/343/AS4/src/nodedata.h
 CMakeFiles/AS4.dir/src/customer.cpp.o
  /home/jeffmur/UWB/343/AS4/src/customer.cpp
  /home/jeffmur/UWB/343/AS4/src/customer.h
@@ -15,6 +19,9 @@ CMakeFiles/AS4.dir/src/hash.cpp.o
  /home/jeffmur/UWB/343/AS4/src/hash.cpp
  /home/jeffmur/UWB/343/AS4/src/hash.h
  /home/jeffmur/UWB/343/AS4/src/nodedata.h
+CMakeFiles/AS4.dir/src/movies.cpp.o
+ /home/jeffmur/UWB/343/AS4/src/movies.cpp
+ /home/jeffmur/UWB/343/AS4/src/movies.h
 CMakeFiles/AS4.dir/src/nodedata.cpp.o
  /home/jeffmur/UWB/343/AS4/src/nodedata.cpp
  /home/jeffmur/UWB/343/AS4/src/nodedata.h

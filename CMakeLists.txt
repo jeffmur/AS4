@@ -12,6 +12,7 @@ add_executable(AS4
         data/data4movies.txt
         src/borrow.h
         src/bst.h
+        src/bst.cpp
         src/customer.cpp
         src/customer.h
         src/hash.cpp
@@ -19,6 +20,7 @@ add_executable(AS4
         src/history.h
         src/inventory.h
         src/movies.h
+        src/movies.cpp
         src/nodedata.cpp
         src/nodedata.h
         src/return.h

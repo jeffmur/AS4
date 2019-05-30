@@ -150,6 +150,33 @@ TESTING.cpp.s:
 	$(MAKE) -f CMakeFiles/AS4.dir/build.make CMakeFiles/AS4.dir/TESTING.cpp.s
 .PHONY : TESTING.cpp.s
 
+src/bst.o: src/bst.cpp.o
+
+.PHONY : src/bst.o
+
+# target to build an object file
+src/bst.cpp.o:
+	$(MAKE) -f CMakeFiles/AS4.dir/build.make CMakeFiles/AS4.dir/src/bst.cpp.o
+.PHONY : src/bst.cpp.o
+
+src/bst.i: src/bst.cpp.i
+
+.PHONY : src/bst.i
+
+# target to preprocess a source file
+src/bst.cpp.i:
+	$(MAKE) -f CMakeFiles/AS4.dir/build.make CMakeFiles/AS4.dir/src/bst.cpp.i
+.PHONY : src/bst.cpp.i
+
+src/bst.s: src/bst.cpp.s
+
+.PHONY : src/bst.s
+
+# target to generate assembly for a file
+src/bst.cpp.s:
+	$(MAKE) -f CMakeFiles/AS4.dir/build.make CMakeFiles/AS4.dir/src/bst.cpp.s
+.PHONY : src/bst.cpp.s
+
 src/customer.o: src/customer.cpp.o
 
 .PHONY : src/customer.o
@@ -204,6 +231,33 @@ src/hash.cpp.s:
 	$(MAKE) -f CMakeFiles/AS4.dir/build.make CMakeFiles/AS4.dir/src/hash.cpp.s
 .PHONY : src/hash.cpp.s
 
+src/movies.o: src/movies.cpp.o
+
+.PHONY : src/movies.o
+
+# target to build an object file
+src/movies.cpp.o:
+	$(MAKE) -f CMakeFiles/AS4.dir/build.make CMakeFiles/AS4.dir/src/movies.cpp.o
+.PHONY : src/movies.cpp.o
+
+src/movies.i: src/movies.cpp.i
+
+.PHONY : src/movies.i
+
+# target to preprocess a source file
+src/movies.cpp.i:
+	$(MAKE) -f CMakeFiles/AS4.dir/build.make CMakeFiles/AS4.dir/src/movies.cpp.i
+.PHONY : src/movies.cpp.i
+
+src/movies.s: src/movies.cpp.s
+
+.PHONY : src/movies.s
+
+# target to generate assembly for a file
+src/movies.cpp.s:
+	$(MAKE) -f CMakeFiles/AS4.dir/build.make CMakeFiles/AS4.dir/src/movies.cpp.s
+.PHONY : src/movies.cpp.s
+
 src/nodedata.o: src/nodedata.cpp.o
 
 .PHONY : src/nodedata.o
@@ -243,12 +297,18 @@ help:
 	@echo "... TESTING.o"
 	@echo "... TESTING.i"
 	@echo "... TESTING.s"
+	@echo "... src/bst.o"
+	@echo "... src/bst.i"
+	@echo "... src/bst.s"
 	@echo "... src/customer.o"
 	@echo "... src/customer.i"
 	@echo "... src/customer.s"
 	@echo "... src/hash.o"
 	@echo "... src/hash.i"
 	@echo "... src/hash.s"
+	@echo "... src/movies.o"
+	@echo "... src/movies.i"
+	@echo "... src/movies.s"
 	@echo "... src/nodedata.o"
 	@echo "... src/nodedata.i"
 	@echo "... src/nodedata.s"

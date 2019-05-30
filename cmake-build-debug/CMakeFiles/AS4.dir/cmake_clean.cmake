@@ -1,6 +1,8 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/AS4.dir/src/bst.cpp.o"
   "CMakeFiles/AS4.dir/src/customer.cpp.o"
   "CMakeFiles/AS4.dir/src/hash.cpp.o"
+  "CMakeFiles/AS4.dir/src/movies.cpp.o"
   "CMakeFiles/AS4.dir/src/nodedata.cpp.o"
   "CMakeFiles/AS4.dir/TESTING.cpp.o"
   "AS4.pdb"
