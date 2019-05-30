@@ -6,26 +6,18 @@
 #include "movie.h"
 using namespace std;
 
+//   dramas (‘D’) are sorted by Director, then Title
+
 class Drama : Movie {
-    friend ostream & operator<<(ostream &, const Movie &);
 
 public:
     virtual ~Drama();
     Drama(const string &);      // data is set equal to parameter
 
-    bool operator==(const Movie &) const;
-    bool operator!=(const Movie &) const;
     bool operator<(const Movie &) const;
     bool operator>(const Movie &) const;
-    bool operator<=(const Movie &) const;
-    bool operator>=(const Movie &) const;
-
-    int quanity;
-
-private:
-    char genre;
-    string director, title;
-    int releaseYear;
+    bool operator<=(const Drama &) const;
+    bool operator>=(const Drama &) const;
 };
 
 #endif

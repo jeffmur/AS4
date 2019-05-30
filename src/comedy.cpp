@@ -5,18 +5,7 @@
 Comedy::~Comedy() { }
 
 Comedy::Comedy(const string &s) : Movie(){
-    stringstream ss(s);
-    vector<string> result;
-    string token;
-    char del = ',';
-    while(getline(ss, token, del)){
-        result.push_back(token);
-    }
-    setGenre(result[0][0]);
-    setQuantity(stoi(result[1]));
-    setDirector(result[2]);
-    setTitle(result[3]);
-    setReleaseYear(stoi(result[4]));
+    setData(s);
 }
 
 //   comedy movie (‘F’) sorted by Title, then Year it released

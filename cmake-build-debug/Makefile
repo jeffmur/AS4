@@ -150,6 +150,33 @@ TESTING.cpp.s:
 	$(MAKE) -f CMakeFiles/AS4.dir/build.make CMakeFiles/AS4.dir/TESTING.cpp.s
 .PHONY : TESTING.cpp.s
 
+src/classic.o: src/classic.cpp.o
+
+.PHONY : src/classic.o
+
+# target to build an object file
+src/classic.cpp.o:
+	$(MAKE) -f CMakeFiles/AS4.dir/build.make CMakeFiles/AS4.dir/src/classic.cpp.o
+.PHONY : src/classic.cpp.o
+
+src/classic.i: src/classic.cpp.i
+
+.PHONY : src/classic.i
+
+# target to preprocess a source file
+src/classic.cpp.i:
+	$(MAKE) -f CMakeFiles/AS4.dir/build.make CMakeFiles/AS4.dir/src/classic.cpp.i
+.PHONY : src/classic.cpp.i
+
+src/classic.s: src/classic.cpp.s
+
+.PHONY : src/classic.s
+
+# target to generate assembly for a file
+src/classic.cpp.s:
+	$(MAKE) -f CMakeFiles/AS4.dir/build.make CMakeFiles/AS4.dir/src/classic.cpp.s
+.PHONY : src/classic.cpp.s
+
 src/comedy.o: src/comedy.cpp.o
 
 .PHONY : src/comedy.o
@@ -203,6 +230,33 @@ src/customer.s: src/customer.cpp.s
 src/customer.cpp.s:
 	$(MAKE) -f CMakeFiles/AS4.dir/build.make CMakeFiles/AS4.dir/src/customer.cpp.s
 .PHONY : src/customer.cpp.s
+
+src/drama.o: src/drama.cpp.o
+
+.PHONY : src/drama.o
+
+# target to build an object file
+src/drama.cpp.o:
+	$(MAKE) -f CMakeFiles/AS4.dir/build.make CMakeFiles/AS4.dir/src/drama.cpp.o
+.PHONY : src/drama.cpp.o
+
+src/drama.i: src/drama.cpp.i
+
+.PHONY : src/drama.i
+
+# target to preprocess a source file
+src/drama.cpp.i:
+	$(MAKE) -f CMakeFiles/AS4.dir/build.make CMakeFiles/AS4.dir/src/drama.cpp.i
+.PHONY : src/drama.cpp.i
+
+src/drama.s: src/drama.cpp.s
+
+.PHONY : src/drama.s
+
+# target to generate assembly for a file
+src/drama.cpp.s:
+	$(MAKE) -f CMakeFiles/AS4.dir/build.make CMakeFiles/AS4.dir/src/drama.cpp.s
+.PHONY : src/drama.cpp.s
 
 src/hash.o: src/hash.cpp.o
 
@@ -297,12 +351,18 @@ help:
 	@echo "... TESTING.o"
 	@echo "... TESTING.i"
 	@echo "... TESTING.s"
+	@echo "... src/classic.o"
+	@echo "... src/classic.i"
+	@echo "... src/classic.s"
 	@echo "... src/comedy.o"
 	@echo "... src/comedy.i"
 	@echo "... src/comedy.s"
 	@echo "... src/customer.o"
 	@echo "... src/customer.i"
 	@echo "... src/customer.s"
+	@echo "... src/drama.o"
+	@echo "... src/drama.i"
+	@echo "... src/drama.s"
 	@echo "... src/hash.o"
 	@echo "... src/hash.i"
 	@echo "... src/hash.s"

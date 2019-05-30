@@ -8,6 +8,10 @@ CMakeFiles/AS4.dir/TESTING.cpp.o
  /home/jeffmur/UWB/343/AS4/src/hash.h
  /home/jeffmur/UWB/343/AS4/src/movie.h
  /home/jeffmur/UWB/343/AS4/src/nodedata.h
+CMakeFiles/AS4.dir/src/classic.cpp.o
+ /home/jeffmur/UWB/343/AS4/src/classic.cpp
+ /home/jeffmur/UWB/343/AS4/src/classic.h
+ /home/jeffmur/UWB/343/AS4/src/movie.h
 CMakeFiles/AS4.dir/src/comedy.cpp.o
  /home/jeffmur/UWB/343/AS4/src/comedy.cpp
  /home/jeffmur/UWB/343/AS4/src/comedy.h
@@ -16,6 +20,10 @@ CMakeFiles/AS4.dir/src/customer.cpp.o
  /home/jeffmur/UWB/343/AS4/src/customer.cpp
  /home/jeffmur/UWB/343/AS4/src/customer.h
  /home/jeffmur/UWB/343/AS4/src/nodedata.h
+CMakeFiles/AS4.dir/src/drama.cpp.o
+ /home/jeffmur/UWB/343/AS4/src/drama.cpp
+ /home/jeffmur/UWB/343/AS4/src/drama.h
+ /home/jeffmur/UWB/343/AS4/src/movie.h
 CMakeFiles/AS4.dir/src/hash.cpp.o
  /home/jeffmur/UWB/343/AS4/src/customer.h
  /home/jeffmur/UWB/343/AS4/src/hash.cpp

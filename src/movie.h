@@ -17,6 +17,8 @@ public:
     const string &getTitle() const;
     int getReleaseYear() const;
 
+    void setData(const string &);
+
     void setGenre(char genre);
     void setQuantity(int quanity);
     void setTitle(string);

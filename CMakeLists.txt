@@ -22,7 +22,9 @@ add_executable(AS4
         src/comedy.h
         src/comedy.cpp
         src/drama.h
+        src/drama.cpp
         src/classic.h
+        src/classic.cpp
         src/nodedata.cpp
         src/nodedata.h
         src/return.h

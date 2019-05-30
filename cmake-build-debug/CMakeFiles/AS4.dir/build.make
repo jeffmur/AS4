@@ -109,9 +109,35 @@ CMakeFiles/AS4.dir/src/comedy.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AS4.dir/src/comedy.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jeffmur/UWB/343/AS4/src/comedy.cpp -o CMakeFiles/AS4.dir/src/comedy.cpp.s
 
+CMakeFiles/AS4.dir/src/drama.cpp.o: CMakeFiles/AS4.dir/flags.make
+CMakeFiles/AS4.dir/src/drama.cpp.o: ../src/drama.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jeffmur/UWB/343/AS4/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/AS4.dir/src/drama.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/AS4.dir/src/drama.cpp.o -c /home/jeffmur/UWB/343/AS4/src/drama.cpp
+
+CMakeFiles/AS4.dir/src/drama.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/AS4.dir/src/drama.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jeffmur/UWB/343/AS4/src/drama.cpp > CMakeFiles/AS4.dir/src/drama.cpp.i
+
+CMakeFiles/AS4.dir/src/drama.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AS4.dir/src/drama.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jeffmur/UWB/343/AS4/src/drama.cpp -o CMakeFiles/AS4.dir/src/drama.cpp.s
+
+CMakeFiles/AS4.dir/src/classic.cpp.o: CMakeFiles/AS4.dir/flags.make
+CMakeFiles/AS4.dir/src/classic.cpp.o: ../src/classic.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jeffmur/UWB/343/AS4/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/AS4.dir/src/classic.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/AS4.dir/src/classic.cpp.o -c /home/jeffmur/UWB/343/AS4/src/classic.cpp
+
+CMakeFiles/AS4.dir/src/classic.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/AS4.dir/src/classic.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jeffmur/UWB/343/AS4/src/classic.cpp > CMakeFiles/AS4.dir/src/classic.cpp.i
+
+CMakeFiles/AS4.dir/src/classic.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AS4.dir/src/classic.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jeffmur/UWB/343/AS4/src/classic.cpp -o CMakeFiles/AS4.dir/src/classic.cpp.s
+
 CMakeFiles/AS4.dir/src/nodedata.cpp.o: CMakeFiles/AS4.dir/flags.make
 CMakeFiles/AS4.dir/src/nodedata.cpp.o: ../src/nodedata.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jeffmur/UWB/343/AS4/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/AS4.dir/src/nodedata.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jeffmur/UWB/343/AS4/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/AS4.dir/src/nodedata.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/AS4.dir/src/nodedata.cpp.o -c /home/jeffmur/UWB/343/AS4/src/nodedata.cpp
 
 CMakeFiles/AS4.dir/src/nodedata.cpp.i: cmake_force
@@ -124,7 +150,7 @@ CMakeFiles/AS4.dir/src/nodedata.cpp.s: cmake_force
 
 CMakeFiles/AS4.dir/TESTING.cpp.o: CMakeFiles/AS4.dir/flags.make
 CMakeFiles/AS4.dir/TESTING.cpp.o: ../TESTING.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jeffmur/UWB/343/AS4/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/AS4.dir/TESTING.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jeffmur/UWB/343/AS4/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/AS4.dir/TESTING.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/AS4.dir/TESTING.cpp.o -c /home/jeffmur/UWB/343/AS4/TESTING.cpp
 
 CMakeFiles/AS4.dir/TESTING.cpp.i: cmake_force
@@ -141,6 +167,8 @@ AS4_OBJECTS = \
 "CMakeFiles/AS4.dir/src/hash.cpp.o" \
 "CMakeFiles/AS4.dir/src/movie.cpp.o" \
 "CMakeFiles/AS4.dir/src/comedy.cpp.o" \
+"CMakeFiles/AS4.dir/src/drama.cpp.o" \
+"CMakeFiles/AS4.dir/src/classic.cpp.o" \
 "CMakeFiles/AS4.dir/src/nodedata.cpp.o" \
 "CMakeFiles/AS4.dir/TESTING.cpp.o"
 
@@ -151,11 +179,13 @@ AS4: CMakeFiles/AS4.dir/src/customer.cpp.o
 AS4: CMakeFiles/AS4.dir/src/hash.cpp.o
 AS4: CMakeFiles/AS4.dir/src/movie.cpp.o
 AS4: CMakeFiles/AS4.dir/src/comedy.cpp.o
+AS4: CMakeFiles/AS4.dir/src/drama.cpp.o
+AS4: CMakeFiles/AS4.dir/src/classic.cpp.o
 AS4: CMakeFiles/AS4.dir/src/nodedata.cpp.o
 AS4: CMakeFiles/AS4.dir/TESTING.cpp.o
 AS4: CMakeFiles/AS4.dir/build.make
 AS4: CMakeFiles/AS4.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/jeffmur/UWB/343/AS4/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable AS4"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/jeffmur/UWB/343/AS4/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable AS4"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/AS4.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

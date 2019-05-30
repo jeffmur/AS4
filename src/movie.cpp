@@ -2,6 +2,8 @@
 #include "comedy.h"
 #include "classic.h"
 #include "drama.h"
+#include <vector>
+#include <sstream>
 
 //------------------- constructors/destructor  -------------------------------
 Movie::Movie(){ }
@@ -15,13 +17,13 @@ Movie::Movie(const string& s) {           // creating movie - comedy, drama, cla
     }
     // drama
     else if (s[0] == 'D') {
-        //Drama *d = new Drama(s);
-        cout << "Drama:   " << s << endl;
+        Drama *d = new Drama(s);
+        cout << "Drama:   " << d << endl;
     }
     // classic
     else if (s[0] == 'C') {
-        //Classic *c = new Classic(s);
-        cout << "Classic: " << s << endl;
+        Classic *c = new Classic(s);
+        cout << "Classic: " << c << endl;
     } else return;
 }
 
@@ -29,6 +31,21 @@ Movie::Movie(const string& s) {           // creating movie - comedy, drama, cla
 //   dramas (‘D’) are sorted by Director, then Title
 //   classics (‘C’) are sorted by Release date, then Major actor
 
+void Movie::setData(const string &s){
+    stringstream ss(s);
+    vector<string> result;
+    string token;
+    char del = ',';
+    while(getline(ss, token, del)){
+        result.push_back(token);
+    }
+    setGenre(result[0][0]);
+    setQuantity(stoi(result[1]));
+    setDirector(result[2]);
+    setTitle(result[3]);
+    setReleaseYear(stoi(result[4]));
+}
+// -------------------- Setter ----------------
 void Movie::setDirector(string director) { Movie::director = director; }
 
 void Movie::setTitle(string title) { Movie::title = title; }
@@ -38,6 +55,8 @@ void Movie::setQuantity(int quantity) { Movie::quantity = quantity; }
 void Movie::setGenre(char genre) { Movie::genre = genre; }
 
 void Movie::setReleaseYear(int releaseYear) { Movie::releaseYear = releaseYear; }
+
+// -------------- Getter ------------------------
 
 int Movie::getQuantity() const { return quantity; }
 
