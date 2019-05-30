@@ -39,10 +39,10 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /home/jeffmur/IDES/clion/bin/cmake/linux/bin/cmake
+CMAKE_COMMAND = /home/jeffmur/IDE/clion-2019.1.2/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /home/jeffmur/IDES/clion/bin/cmake/linux/bin/cmake -E remove -f
+RM = /home/jeffmur/IDE/clion-2019.1.2/bin/cmake/linux/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -59,7 +59,7 @@ CMAKE_BINARY_DIR = /home/jeffmur/UWB/343/AS4/cmake-build-debug
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/home/jeffmur/IDES/clion/bin/cmake/linux/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/home/jeffmur/IDE/clion-2019.1.2/bin/cmake/linux/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -70,7 +70,7 @@ rebuild_cache/fast: rebuild_cache
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/home/jeffmur/IDES/clion/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	/home/jeffmur/IDE/clion-2019.1.2/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -150,6 +150,33 @@ TESTING.cpp.s:
 	$(MAKE) -f CMakeFiles/AS4.dir/build.make CMakeFiles/AS4.dir/TESTING.cpp.s
 .PHONY : TESTING.cpp.s
 
+src/comedy.o: src/comedy.cpp.o
+
+.PHONY : src/comedy.o
+
+# target to build an object file
+src/comedy.cpp.o:
+	$(MAKE) -f CMakeFiles/AS4.dir/build.make CMakeFiles/AS4.dir/src/comedy.cpp.o
+.PHONY : src/comedy.cpp.o
+
+src/comedy.i: src/comedy.cpp.i
+
+.PHONY : src/comedy.i
+
+# target to preprocess a source file
+src/comedy.cpp.i:
+	$(MAKE) -f CMakeFiles/AS4.dir/build.make CMakeFiles/AS4.dir/src/comedy.cpp.i
+.PHONY : src/comedy.cpp.i
+
+src/comedy.s: src/comedy.cpp.s
+
+.PHONY : src/comedy.s
+
+# target to generate assembly for a file
+src/comedy.cpp.s:
+	$(MAKE) -f CMakeFiles/AS4.dir/build.make CMakeFiles/AS4.dir/src/comedy.cpp.s
+.PHONY : src/comedy.cpp.s
+
 src/customer.o: src/customer.cpp.o
 
 .PHONY : src/customer.o
@@ -204,32 +231,32 @@ src/hash.cpp.s:
 	$(MAKE) -f CMakeFiles/AS4.dir/build.make CMakeFiles/AS4.dir/src/hash.cpp.s
 .PHONY : src/hash.cpp.s
 
-src/movies.o: src/movies.cpp.o
+src/movie.o: src/movie.cpp.o
 
-.PHONY : src/movies.o
+.PHONY : src/movie.o
 
 # target to build an object file
-src/movies.cpp.o:
-	$(MAKE) -f CMakeFiles/AS4.dir/build.make CMakeFiles/AS4.dir/src/movies.cpp.o
-.PHONY : src/movies.cpp.o
+src/movie.cpp.o:
+	$(MAKE) -f CMakeFiles/AS4.dir/build.make CMakeFiles/AS4.dir/src/movie.cpp.o
+.PHONY : src/movie.cpp.o
 
-src/movies.i: src/movies.cpp.i
+src/movie.i: src/movie.cpp.i
 
-.PHONY : src/movies.i
+.PHONY : src/movie.i
 
 # target to preprocess a source file
-src/movies.cpp.i:
-	$(MAKE) -f CMakeFiles/AS4.dir/build.make CMakeFiles/AS4.dir/src/movies.cpp.i
-.PHONY : src/movies.cpp.i
+src/movie.cpp.i:
+	$(MAKE) -f CMakeFiles/AS4.dir/build.make CMakeFiles/AS4.dir/src/movie.cpp.i
+.PHONY : src/movie.cpp.i
 
-src/movies.s: src/movies.cpp.s
+src/movie.s: src/movie.cpp.s
 
-.PHONY : src/movies.s
+.PHONY : src/movie.s
 
 # target to generate assembly for a file
-src/movies.cpp.s:
-	$(MAKE) -f CMakeFiles/AS4.dir/build.make CMakeFiles/AS4.dir/src/movies.cpp.s
-.PHONY : src/movies.cpp.s
+src/movie.cpp.s:
+	$(MAKE) -f CMakeFiles/AS4.dir/build.make CMakeFiles/AS4.dir/src/movie.cpp.s
+.PHONY : src/movie.cpp.s
 
 src/nodedata.o: src/nodedata.cpp.o
 
@@ -270,15 +297,18 @@ help:
 	@echo "... TESTING.o"
 	@echo "... TESTING.i"
 	@echo "... TESTING.s"
+	@echo "... src/comedy.o"
+	@echo "... src/comedy.i"
+	@echo "... src/comedy.s"
 	@echo "... src/customer.o"
 	@echo "... src/customer.i"
 	@echo "... src/customer.s"
 	@echo "... src/hash.o"
 	@echo "... src/hash.i"
 	@echo "... src/hash.s"
-	@echo "... src/movies.o"
-	@echo "... src/movies.i"
-	@echo "... src/movies.s"
+	@echo "... src/movie.o"
+	@echo "... src/movie.i"
+	@echo "... src/movie.s"
 	@echo "... src/nodedata.o"
 	@echo "... src/nodedata.i"
 	@echo "... src/nodedata.s"

@@ -5,7 +5,8 @@
 
 #include "src/customer.h"
 #include "src/hash.h"
-#include "src/movies.h"
+#include "src/movie.h"
+#include "src/comedy.h"
 
 using namespace std;
 
@@ -53,13 +54,10 @@ void buildMovies(ifstream& infile){
 
         if(data.empty() || data == "\r") { continue; }
 
-        Movies *m = new Movies(data);
-        cout << "Data: " << data << endl;
+        Movie *m = new Movie(data);
 
         // Movies will assign each string to genre based on char
         // Possible build tree function to initialize data
-
-
     }
 }
 

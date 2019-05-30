@@ -3,25 +3,22 @@
 #include <string>
 #include <iostream>
 #include <fstream>
-#include "movies.h"
+#include "movie.h"
 using namespace std;
 
-class Drama : Movies {
-    friend ostream & operator<<(ostream &, const Movies &);
+class Drama : Movie {
+    friend ostream & operator<<(ostream &, const Movie &);
 
 public:
     virtual ~Drama();
     Drama(const string &);      // data is set equal to parameter
 
-    // set class data from data file
-    // returns true if the data is set, false when bad data, i.e., is eof
-
-    bool operator==(const Movies &) const;
-    bool operator!=(const Movies &) const;
-    bool operator<(const Movies &) const;
-    bool operator>(const Movies &) const;
-    bool operator<=(const Movies &) const;
-    bool operator>=(const Movies &) const;
+    bool operator==(const Movie &) const;
+    bool operator!=(const Movie &) const;
+    bool operator<(const Movie &) const;
+    bool operator>(const Movie &) const;
+    bool operator<=(const Movie &) const;
+    bool operator>=(const Movie &) const;
 
     int quanity;
 

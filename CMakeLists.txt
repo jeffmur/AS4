@@ -17,9 +17,10 @@ add_executable(AS4
         src/hash.h
         src/history.h
         src/inventory.h
-        src/movies.h
-        src/movies.cpp
+        src/movie.h
+        src/movie.cpp
         src/comedy.h
+        src/comedy.cpp
         src/drama.h
         src/classic.h
         src/nodedata.cpp

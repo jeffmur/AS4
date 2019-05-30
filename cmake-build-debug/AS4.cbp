@@ -91,19 +91,22 @@
 		<Unit filename="/home/jeffmur/UWB/343/AS4/TESTING.cpp">
 			<Option target="AS4"/>
 		</Unit>
-		<Unit filename="/home/jeffmur/UWB/343/AS4/data/data4commands.txt">
+		<Unit filename="/home/jeffmur/UWB/343/AS4/cmake-build-debug/data/data4commands.txt">
 			<Option target="AS4"/>
 		</Unit>
-		<Unit filename="/home/jeffmur/UWB/343/AS4/data/data4customers.txt">
+		<Unit filename="/home/jeffmur/UWB/343/AS4/cmake-build-debug/data/data4customers.txt">
 			<Option target="AS4"/>
 		</Unit>
-		<Unit filename="/home/jeffmur/UWB/343/AS4/data/data4movies.txt">
+		<Unit filename="/home/jeffmur/UWB/343/AS4/cmake-build-debug/data/data4movies.txt">
 			<Option target="AS4"/>
 		</Unit>
 		<Unit filename="/home/jeffmur/UWB/343/AS4/src/borrow.h">
 			<Option target="AS4"/>
 		</Unit>
 		<Unit filename="/home/jeffmur/UWB/343/AS4/src/classic.h">
+			<Option target="AS4"/>
+		</Unit>
+		<Unit filename="/home/jeffmur/UWB/343/AS4/src/comedy.cpp">
 			<Option target="AS4"/>
 		</Unit>
 		<Unit filename="/home/jeffmur/UWB/343/AS4/src/comedy.h">
@@ -130,10 +133,10 @@
 		<Unit filename="/home/jeffmur/UWB/343/AS4/src/inventory.h">
 			<Option target="AS4"/>
 		</Unit>
-		<Unit filename="/home/jeffmur/UWB/343/AS4/src/movies.cpp">
+		<Unit filename="/home/jeffmur/UWB/343/AS4/src/movie.cpp">
 			<Option target="AS4"/>
 		</Unit>
-		<Unit filename="/home/jeffmur/UWB/343/AS4/src/movies.h">
+		<Unit filename="/home/jeffmur/UWB/343/AS4/src/movie.h">
 			<Option target="AS4"/>
 		</Unit>
 		<Unit filename="/home/jeffmur/UWB/343/AS4/src/nodedata.cpp">
