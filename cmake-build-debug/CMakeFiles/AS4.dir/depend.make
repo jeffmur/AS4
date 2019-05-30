@@ -4,11 +4,8 @@
 CMakeFiles/AS4.dir/TESTING.cpp.o: ../TESTING.cpp
 CMakeFiles/AS4.dir/TESTING.cpp.o: ../src/customer.h
 CMakeFiles/AS4.dir/TESTING.cpp.o: ../src/hash.h
+CMakeFiles/AS4.dir/TESTING.cpp.o: ../src/movies.h
 CMakeFiles/AS4.dir/TESTING.cpp.o: ../src/nodedata.h
-
-CMakeFiles/AS4.dir/src/bst.cpp.o: ../src/bst.cpp
-CMakeFiles/AS4.dir/src/bst.cpp.o: ../src/bst.h
-CMakeFiles/AS4.dir/src/bst.cpp.o: ../src/nodedata.h
 
 CMakeFiles/AS4.dir/src/customer.cpp.o: ../src/customer.cpp
 CMakeFiles/AS4.dir/src/customer.cpp.o: ../src/customer.h
@@ -19,6 +16,9 @@ CMakeFiles/AS4.dir/src/hash.cpp.o: ../src/hash.cpp
 CMakeFiles/AS4.dir/src/hash.cpp.o: ../src/hash.h
 CMakeFiles/AS4.dir/src/hash.cpp.o: ../src/nodedata.h
 
+CMakeFiles/AS4.dir/src/movies.cpp.o: ../src/classic.h
+CMakeFiles/AS4.dir/src/movies.cpp.o: ../src/comedy.h
+CMakeFiles/AS4.dir/src/movies.cpp.o: ../src/drama.h
 CMakeFiles/AS4.dir/src/movies.cpp.o: ../src/movies.cpp
 CMakeFiles/AS4.dir/src/movies.cpp.o: ../src/movies.h
 

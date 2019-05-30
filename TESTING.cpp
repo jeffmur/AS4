@@ -5,6 +5,7 @@
 
 #include "src/customer.h"
 #include "src/hash.h"
+#include "src/movies.h"
 
 using namespace std;
 
@@ -38,8 +39,34 @@ void buildCustomers(ifstream& infile){
     test.display();
 }
 
+void buildMovies(ifstream& infile){
+    if (!infile) {
+        cout << "File could not be opened." << endl;
+        return;
+    }
+    // build Trees ?
+    for(;;){
+        if(infile.eof()) { break; }
+
+        string data;
+        getline(infile, data);
+
+        if(data.empty() || data == "\r") { continue; }
+
+        Movies *m = new Movies(data);
+        cout << "Data: " << data << endl;
+
+        // Movies will assign each string to genre based on char
+        // Possible build tree function to initialize data
+
+
+    }
+}
+
 int main() {
-    ifstream infileC("/home/jeffmur/UWB/343/AS4/data/data4customers.txt");
+    //ifstream infileC("/home/jeffmur/UWB/343/AS4/data/data4customers.txt");
     //ifstream infileC("data/data4customers.txt");
-    buildCustomers(infileC);
+    //buildCustomers(infileC);
+    ifstream infileM("data/data4movies.txt");
+    buildMovies(infileM);
 }

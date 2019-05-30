@@ -150,33 +150,6 @@ TESTING.cpp.s:
 	$(MAKE) -f CMakeFiles/AS4.dir/build.make CMakeFiles/AS4.dir/TESTING.cpp.s
 .PHONY : TESTING.cpp.s
 
-src/bst.o: src/bst.cpp.o
-
-.PHONY : src/bst.o
-
-# target to build an object file
-src/bst.cpp.o:
-	$(MAKE) -f CMakeFiles/AS4.dir/build.make CMakeFiles/AS4.dir/src/bst.cpp.o
-.PHONY : src/bst.cpp.o
-
-src/bst.i: src/bst.cpp.i
-
-.PHONY : src/bst.i
-
-# target to preprocess a source file
-src/bst.cpp.i:
-	$(MAKE) -f CMakeFiles/AS4.dir/build.make CMakeFiles/AS4.dir/src/bst.cpp.i
-.PHONY : src/bst.cpp.i
-
-src/bst.s: src/bst.cpp.s
-
-.PHONY : src/bst.s
-
-# target to generate assembly for a file
-src/bst.cpp.s:
-	$(MAKE) -f CMakeFiles/AS4.dir/build.make CMakeFiles/AS4.dir/src/bst.cpp.s
-.PHONY : src/bst.cpp.s
-
 src/customer.o: src/customer.cpp.o
 
 .PHONY : src/customer.o
@@ -297,9 +270,6 @@ help:
 	@echo "... TESTING.o"
 	@echo "... TESTING.i"
 	@echo "... TESTING.s"
-	@echo "... src/bst.o"
-	@echo "... src/bst.i"
-	@echo "... src/bst.s"
 	@echo "... src/customer.o"
 	@echo "... src/customer.i"
 	@echo "... src/customer.s"

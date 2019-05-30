@@ -1,69 +1,49 @@
 #include "movies.h"
+#include "comedy.h"
+#include "classic.h"
+#include "drama.h"
 
 //------------------- constructors/destructor  -------------------------------
-Movies::Movies() { }                         // default
+Movies::~Movies() { }                       // needed so data is deleted properly
 
-Movies::~Movies() { }                       // needed so strings are deleted properly
-
-Movies::Movies(const string& s) {           // creating movies
+Movies::Movies(const string& s) {           // creating movies - comedy, drama, classic
     // comedy
     if(s[0] == 'F'){
-
+        //Comedy *c = new Comedy(s);
     }
     // drama
     else if (s[0] == 'D') {
-
+        //Drama *d = new Drama(s);
     }
     // classic
     else if (s[0] == 'C') {
-
-    }
+        //Classic *c = new Classic(s);
+    } else return;
 }
 
-//------------------------- operator= ----------------------------------------
-Movies& Movies::operator=(const Movies& rhs) {
-//    if (this != &rhs) {
-//        data = rhs.data;
-//    }
-//    return *this;
-}
+//   comedy movies (‘F’) sorted by Title, then Year it released
+//   dramas (‘D’) are sorted by Director, then Title
+//   classics (‘C’) are sorted by Release date, then Major actor
 
 //------------------------- operator==,!= ------------------------------------
 bool Movies::operator==(const Movies& rhs) const {
-    //return data == rhs.data;
+    if(genre == rhs.genre){
+        if(title == rhs.title && director == rhs.director)
+            return true;
+    }
+    return false;
 }
-
 bool Movies::operator!=(const Movies& rhs) const {
-    //return data != rhs.data;
+    return !(*this == rhs);
 }
 
 //------------------------ operator<,>,<=,>= ---------------------------------
-bool Movies::operator<(const Movies& rhs) const {
-    //return data < rhs.data;
-}
-
-bool Movies::operator>(const Movies& rhs) const {
-    //return data > rhs.data;
-}
-
-bool Movies::operator<=(const Movies& rhs) const {
-    //return data <= rhs.data;
-}
-
-bool Movies::operator>=(const Movies& rhs) const {
-    //return data >= rhs.data;
-}
-
-//------------------------------ setData -------------------------------------
-// returns true if the data is set, false when bad data, i.e., is eof
-
-bool Movies::setData(istream& infile) {
-    //getline(infile, data);
-    //return !infile.eof();       // eof function is true when eof char is read
-}
+bool Movies::operator<(const Movies& rhs) const { }
+bool Movies::operator>(const Movies& rhs) const { }
+bool Movies::operator<=(const Movies& rhs) const { }
+bool Movies::operator>=(const Movies& rhs) const { }
 
 //-------------------------- operator<< --------------------------------------
-// Modified: 4/18 to handle null exception
 ostream& operator<<(ostream& output, const Movies& nd) {
 //    if(&nd != nullptr)
 //        output << nd.data;
