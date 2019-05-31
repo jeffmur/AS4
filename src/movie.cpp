@@ -13,17 +13,17 @@ Movie::Movie(const string& s) {           // creating movie - comedy, drama, cla
     // comedy
     if(s[0] == 'F'){
         Comedy *c = new Comedy(s);
-        cout << "Comedy:  " << c << endl;
+        cout << "Comedy  :" << c->getTitle() << endl;
     }
     // drama
     else if (s[0] == 'D') {
         Drama *d = new Drama(s);
-        cout << "Drama:   " << d << endl;
+        cout << "Drama   :" << d->getTitle() << endl;
     }
     // classic
     else if (s[0] == 'C') {
         Classic *c = new Classic(s);
-        cout << "Classic: " << c << endl;
+        cout << "Classic :" << c->getMajorActor() << endl;
     } else return;
 }
 

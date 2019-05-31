@@ -5,7 +5,7 @@
 
 Classic::~Classic() { }
 
-Classic::Classic(const string &s) : Movie(){
+Classic::Classic(const string &s) : Movie() {
     stringstream ss(s);
     vector<string> result;
     string token;
@@ -18,35 +18,56 @@ Classic::Classic(const string &s) : Movie(){
     setDirector(result[2]);
     setTitle(result[3]);
     string temp = result[4];
-    
+    int length = temp.length();
+    setReleaseYear(stoi(temp.substr(length-5, length)));
+    setReleaseMonth(stoi(temp.substr(length-8, length-6)));
+    setMajorActor(temp.substr(0, length-8));
 }
 
+void Classic::setReleaseMonth(int releaseMonth) { Classic::releaseMonth = releaseMonth; }
+
+int Classic::getReleaseMonth() const { return releaseMonth; }
+
+const string &Classic::getMajorActor() const { return majorActor; }
+
+void Classic::setMajorActor(const string &majorActor) { Classic::majorActor = majorActor; }
+
 //   classics (‘C’) are sorted by Release date, then Major actor
-bool Classic::operator<(const Movie &rhs) const {
-    // compare by Title
-    if(getTitle() < rhs.getTitle())
+bool Classic::operator<(const Classic &rhs) const {
+
+    // compare by Release Date
+    if(getReleaseYear() < rhs.getReleaseYear())
         return true;
 
-        // else compare year if titles' are equal
-    else if(getTitle() == rhs.getTitle()){
-        if(getReleaseYear() < rhs.getReleaseYear())
+    // same year then compare month
+    else if(getReleaseYear() == rhs.getReleaseYear()){
+        if(getReleaseMonth() < rhs.getReleaseMonth())
             return true;
     }
-    // otherwise false
+    // then compare Major Actor
+    else if(getMajorActor() < rhs.getMajorActor()){
+        return true;
+    }
+    // otherwise false (equal or greater than)
     return false;
 }
 
-bool Classic::operator>(const Movie &rhs) const {
-    // compare by Title
-    if(getTitle() > rhs.getTitle())
+bool Classic::operator>(const Classic &rhs) const {
+
+    // compare by Release Date
+    if (getReleaseYear() > rhs.getReleaseYear())
         return true;
 
-        // else compare year if titles' are equal
-    else if(getTitle() == rhs.getTitle()){
-        if(getReleaseYear() > rhs.getReleaseYear())
+    // same year then compare month
+    else if (getReleaseYear() == rhs.getReleaseYear()) {
+        if (getReleaseMonth() > rhs.getReleaseMonth())
             return true;
     }
-    // otherwise false
+    // then compare Major Actor
+    else if (getMajorActor() > rhs.getMajorActor()) {
+        return true;
+    }
+    // otherwise false (equal or greater than)
     return false;
 }
 

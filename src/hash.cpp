@@ -86,9 +86,8 @@ bool Hash::remove(int custID) {
             }
         }
     }
-    else
-        // not found, leaves Hash unchanged
-        return false;
+    // not found, leaves Hash unchanged
+    return false;
 }
 
 // print each values in vector and linked list if applicable

@@ -8,7 +8,7 @@ using namespace std;
 
 //   comedy movie (‘F’) sorted by Title, then Year it released
 
-class Comedy : Movie {
+class Comedy : public Movie {
 
 public:
     virtual ~Comedy();

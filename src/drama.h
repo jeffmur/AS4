@@ -8,7 +8,7 @@ using namespace std;
 
 //   dramas (‘D’) are sorted by Director, then Title
 
-class Drama : Movie {
+class Drama : public Movie {
 
 public:
     virtual ~Drama();

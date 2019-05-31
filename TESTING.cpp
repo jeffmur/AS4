@@ -41,24 +41,28 @@ void buildCustomers(ifstream& infile){
 }
 
 void buildMovies(ifstream& infile){
-    if (!infile) {
-        cout << "File could not be opened." << endl;
-        return;
-    }
-    // build Trees ?
-    for(;;){
-        if(infile.eof()) { break; }
-
-        string data;
-        getline(infile, data);
-
-        if(data.empty() || data == "\r") { continue; }
-
-        Movie *m = new Movie(data);
-
-        // Movies will assign each string to genre based on char
-        // Possible build tree function to initialize data
-    }
+//    if (!infile) {
+//        cout << "File could not be opened." << endl;
+//        return;
+//    }
+//    // build Trees ?
+//    for(;;){
+//        if(infile.eof()) { break; }
+//
+//        string data;
+//        getline(infile, data);
+//
+//        if(data.empty() || data == "\r") { continue; }
+//
+//        Movie *m = new Movie(data);
+//
+//        // Movies will assign each string to genre based on char
+//        // Possible build tree function to initialize data
+//    }
+    Movie *classicA = new Movie("C, 10, Michael Curtiz, Casablanca, Ingrid Bergman 8 1942\r");
+    Movie *classicB = new Movie("C, 10, Michael Curtiz, Casablanca, Humphrey Bogart 8 1942\r");
+    Movie *comedyA = new Movie("F, 10, Woody Allen, Annie Hall, 1977\r");
+    cout << "Equal? " << ( *classicA == *comedyA ? "True" : "False") << endl;
 }
 
 int main() {
