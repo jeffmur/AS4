@@ -26,12 +26,12 @@ bool Drama::operator<(const Movie &rhs) const {
 
 bool Drama::operator>(const Movie &rhs) const {
     // compare by Title
-    if(getTitle() > rhs.getTitle())
+    if(getDirector() > rhs.getDirector())
         return true;
 
         // else compare year if titles' are equal
-    else if(getTitle() == rhs.getTitle()){
-        if(getReleaseYear() > rhs.getReleaseYear())
+    else if(getDirector() == rhs.getDirector()){
+        if(getTitle() > rhs.getTitle())
             return true;
     }
     // otherwise false
@@ -50,7 +50,9 @@ ostream &operator<<(ostream &output, const Drama &m) {
     if(&m != nullptr){
         cout << "Drama"
              << setw(10) << m.getQuantity() << " "
-             << setw(35) << m.getTitle();
+             << setw(35) << m.getTitle()
+             << setw(25) << m.getDirector()
+             << setw(12) << m.getReleaseYear();
     }
     else
         output << "NULL";

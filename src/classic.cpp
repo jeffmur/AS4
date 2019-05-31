@@ -42,12 +42,9 @@ bool Classic::operator<(const Classic &rhs) const {
 
     // same year then compare month
     else if(getReleaseYear() == rhs.getReleaseYear()){
-        if(getReleaseMonth() < rhs.getReleaseMonth())
-            return true;
-    }
-    // then compare Major Actor
-    else if(getMajorActor() < rhs.getMajorActor()){
-        return true;
+        if(getReleaseMonth() <= rhs.getReleaseMonth())
+            if(getMajorActor() < rhs.getMajorActor())
+                return true;
     }
     // otherwise false (equal or greater than)
     return false;
@@ -61,12 +58,9 @@ bool Classic::operator>(const Classic &rhs) const {
 
     // same year then compare month
     else if (getReleaseYear() == rhs.getReleaseYear()) {
-        if (getReleaseMonth() > rhs.getReleaseMonth())
-            return true;
-    }
-    // then compare Major Actor
-    else if (getMajorActor() > rhs.getMajorActor()) {
-        return true;
+        if (getReleaseMonth() >= rhs.getReleaseMonth())
+            if (getMajorActor() > rhs.getMajorActor())
+                return true;
     }
     // otherwise false (equal or greater than)
     return false;
@@ -85,7 +79,8 @@ ostream &operator<<(ostream &output, const Classic &m) {
         cout << "Classic"
              << setw(8) << m.getQuantity() << " "
              << setw(35) << m.getTitle()
-             << setw(25) << m.getMajorActor();
+             << setw(25) << m.getMajorActor()
+             << setw(12) << m.getReleaseYear();
     }
     else
         output << "NULL";

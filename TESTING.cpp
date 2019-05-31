@@ -49,12 +49,8 @@ void buildMovies(ifstream& infile) {
         return;
     }
     auto *comedyBST = new BinTree<Comedy>();
-    //auto *classicBST = new BinTree<Classic>();
-    //auto *dramaBST = new BinTree<Drama>();
-    cout << " Genre"
-         << setw(12) << "Quantity"
-         << setw(20) << "Title"
-         << setw(38) << "Major Actor\n";
+    auto *classicBST = new BinTree<Classic>();
+    auto *dramaBST = new BinTree<Drama>();
     for(;;){
         if(infile.eof()) { break; }
 
@@ -66,20 +62,20 @@ void buildMovies(ifstream& infile) {
         // comedy
         if(data[0] == 'F'){
             auto *f = new Comedy(data);
-            cout << *f << endl;
+            //cout << *f << endl;
             comedyBST->insert(f);
         }
         // drama
         else if (data[0] == 'D') {
             auto *d = new Drama(data);
-            cout << *d << endl;
-            //dramaBST->insert(d);
+            //cout << *d << endl;
+            dramaBST->insert(d);
         }
         // classic
         else if (data[0] == 'C') {
             auto *c = new Classic(data);
-            cout << *c << endl;
-            //classicBST->insert(c);
+            //cout << *c << endl;
+            classicBST->insert(c);
         }
 
         // Movies will assign each string to genre based on char
@@ -89,6 +85,10 @@ void buildMovies(ifstream& infile) {
 //    Classic *cB = new Classic("C, 10, Michael Curtiz, Casablanca, Humphrey Bogart 8 1942\r");
 //    Comedy *fA = new Comedy("F, 10, Woody Allen, Annie Hall, 1977\r");
 //    cout << "cA == cB? " << ( *cA == *cB ? "True" : "False") << endl;
+    comedyBST->display();
+    classicBST->display();
+    dramaBST->display();
+
 }
 
 int main() {
