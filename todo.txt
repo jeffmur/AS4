@@ -17,9 +17,11 @@ Jeffrey:
 	      Memorial Day (Sun - Mon)
 
 	Best contacted over cell (425.698.024)
-Nick:
+Alex:
+    Busy MW 1-11pm
 
-
+    Best contacted over discord Voxel#3968
+    
 --------Current Progress---------
 * Create mask header files for easier development
 * Use UML and architecture
