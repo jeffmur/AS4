@@ -9,6 +9,7 @@
 #include "src/classic.h"
 #include "src/drama.h"
 #include "src/comedy.h"
+#include "bst.h"
 
 using namespace std;
 
@@ -47,7 +48,9 @@ void buildMovies(ifstream& infile) {
         cout << "File could not be opened." << endl;
         return;
     }
-    // build Trees ?
+    auto *comedyBST = new BinTree<Comedy>();
+    //auto *classicBST = new BinTree<Classic>();
+    //auto *dramaBST = new BinTree<Drama>();
     cout << " Genre"
          << setw(12) << "Quantity"
          << setw(20) << "Title"
@@ -62,18 +65,21 @@ void buildMovies(ifstream& infile) {
 
         // comedy
         if(data[0] == 'F'){
-            Comedy *f = new Comedy(data);
+            auto *f = new Comedy(data);
             cout << *f << endl;
+            comedyBST->insert(f);
         }
         // drama
         else if (data[0] == 'D') {
-            Drama *d = new Drama(data);
+            auto *d = new Drama(data);
             cout << *d << endl;
+            //dramaBST->insert(d);
         }
         // classic
         else if (data[0] == 'C') {
-            Classic *c = new Classic(data);
+            auto *c = new Classic(data);
             cout << *c << endl;
+            //classicBST->insert(c);
         }
 
         // Movies will assign each string to genre based on char

@@ -26,4 +26,5 @@ add_executable(AS4
         src/return.h
         src/transaction.h
         src/bstree.h
+        src/bst.h
         TESTING.cpp)
