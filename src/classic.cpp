@@ -15,13 +15,13 @@ Classic::Classic(const string &s) : Movie() {
     }
     setGenre(result[0][0]);
     setQuantity(stoi(result[1]));
-    setDirector(result[2]);
-    setTitle(result[3]);
+    setDirector(removeSpace(result[2]));
+    setTitle(removeSpace(result[3]));
     string temp = result[4];
     int length = temp.length();
     setReleaseYear(stoi(temp.substr(length-5, length)));
     setReleaseMonth(stoi(temp.substr(length-8, length-6)));
-    setMajorActor(temp.substr(0, length-8));
+    setMajorActor(removeSpace(temp.substr(0, length-8)));
 }
 
 void Classic::setReleaseMonth(int releaseMonth) { Classic::releaseMonth = releaseMonth; }
@@ -77,4 +77,14 @@ bool Classic::operator<=(const Classic &rhs) const {
 
 bool Classic::operator>=(const Classic &rhs) const {
     return (*this > rhs) || (*this == rhs);
+}
+
+ostream &operator<<(ostream &output, const Classic &m) {
+    if(&m != nullptr){
+        cout << "Classic, " << m.getQuantity() << ", " <<
+                m.getTitle() << ", " << m.getMajorActor();
+    }
+    else
+        output << "NULL";
+    return output;
 }

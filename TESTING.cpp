@@ -5,7 +5,8 @@
 
 #include "src/customer.h"
 #include "src/hash.h"
-#include "src/movie.h"
+#include "src/classic.h"
+#include "src/drama.h"
 #include "src/comedy.h"
 
 using namespace std;
@@ -40,35 +41,49 @@ void buildCustomers(ifstream& infile){
     test.display();
 }
 
-void buildMovies(ifstream& infile){
-//    if (!infile) {
-//        cout << "File could not be opened." << endl;
-//        return;
-//    }
-//    // build Trees ?
-//    for(;;){
-//        if(infile.eof()) { break; }
-//
-//        string data;
-//        getline(infile, data);
-//
-//        if(data.empty() || data == "\r") { continue; }
-//
-//        Movie *m = new Movie(data);
-//
-//        // Movies will assign each string to genre based on char
-//        // Possible build tree function to initialize data
-//    }
-    Movie *classicA = new Movie("C, 10, Michael Curtiz, Casablanca, Ingrid Bergman 8 1942\r");
-    Movie *classicB = new Movie("C, 10, Michael Curtiz, Casablanca, Humphrey Bogart 8 1942\r");
-    Movie *comedyA = new Movie("F, 10, Woody Allen, Annie Hall, 1977\r");
-    cout << "Equal? " << ( *classicA == *comedyA ? "True" : "False") << endl;
+void buildMovies(ifstream& infile) {
+    if (!infile) {
+        cout << "File could not be opened." << endl;
+        return;
+    }
+    // build Trees ?
+    for(;;){
+        if(infile.eof()) { break; }
+
+        string data;
+        getline(infile, data);
+
+        if(data.empty() || data == "\r") { continue; }
+
+        // comedy
+        if(data[0] == 'F'){
+            Comedy *c = new Comedy(data);
+            cout << *c << endl;
+        }
+        // drama
+        else if (data[0] == 'D') {
+            Drama *d = new Drama(data);
+            cout << *d << endl;
+        }
+        // classic
+        else if (data[0] == 'C') {
+            Classic *c = new Classic(data);
+            cout << *c << endl;
+        }
+
+        // Movies will assign each string to genre based on char
+        // Possible build tree function to initialize data
+    }
+//    Classic *cA = new Classic("C, 10, Michael Curtiz, Casablanca, Ingrid Bergman 8 1942\r");
+//    Classic *cB = new Classic("C, 10, Michael Curtiz, Casablanca, Humphrey Bogart 8 1942\r");
+//    Comedy *fA = new Comedy("F, 10, Woody Allen, Annie Hall, 1977\r");
+//    cout << "cA == cB? " << ( *cA == *cB ? "True" : "False") << endl;
 }
 
 int main() {
     //ifstream infileC("/home/jeffmur/UWB/343/AS4/data/data4customers.txt");
-    ifstream infileC("data/data4customers.txt");
-    buildCustomers(infileC);
+    //ifstream infileC("data/data4customers.txt");
+    //buildCustomers(infileC);
     ifstream infileM("data/data4movies.txt");
     buildMovies(infileM);
 }

@@ -9,28 +9,6 @@
 Movie::Movie(){ }
 Movie::~Movie() { }                       // needed so data is deleted properly
 
-Movie::Movie(const string& s) {           // creating movie - comedy, drama, classic
-    // comedy
-    if(s[0] == 'F'){
-        Comedy *c = new Comedy(s);
-        cout << "Comedy  :" << c->getTitle() << endl;
-    }
-    // drama
-    else if (s[0] == 'D') {
-        Drama *d = new Drama(s);
-        cout << "Drama   :" << d->getTitle() << endl;
-    }
-    // classic
-    else if (s[0] == 'C') {
-        Classic *c = new Classic(s);
-        cout << "Classic :" << c->getMajorActor() << endl;
-    } else return;
-}
-
-//   comedy movie (‘F’) sorted by Title, then Year it released
-//   dramas (‘D’) are sorted by Director, then Title
-//   classics (‘C’) are sorted by Release date, then Major actor
-
 void Movie::setData(const string &s){
     stringstream ss(s);
     vector<string> result;
@@ -41,8 +19,8 @@ void Movie::setData(const string &s){
     }
     setGenre(result[0][0]);
     setQuantity(stoi(result[1]));
-    setDirector(result[2]);
-    setTitle(result[3]);
+    setDirector(removeSpace(result[2]));
+    setTitle(removeSpace(result[3]));
     setReleaseYear(stoi(result[4]));
 }
 // -------------------- Setter ----------------
@@ -78,4 +56,16 @@ bool Movie::operator==(const Movie& rhs) const {
 }
 bool Movie::operator!=(const Movie& rhs) const {
     return !(*this == rhs);
+}
+
+string Movie::removeSpace(string old){
+    string result;
+    int l = old.length();
+    if(old[0] == *" "){
+        result = old.substr(1, l);
+    }
+    if(old[l-1] == *" "){
+        result = old.substr(0, l-1);
+    }
+    return result;
 }

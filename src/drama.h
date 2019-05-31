@@ -9,7 +9,7 @@ using namespace std;
 //   dramas (‘D’) are sorted by Director, then Title
 
 class Drama : public Movie {
-
+    friend ostream & operator<<(ostream &, const Drama &);
 public:
     virtual ~Drama();
     Drama(const string &);      // data is set equal to parameter

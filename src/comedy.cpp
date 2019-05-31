@@ -44,3 +44,12 @@ bool Comedy::operator<=(const Comedy &rhs) const {
 bool Comedy::operator>=(const Comedy &rhs) const {
     return (*this > rhs) || (*this == rhs);
 }
+
+ostream &operator<<(ostream &output, const Comedy &m) {
+    if(&m != nullptr){
+        cout << "Comedy, " << m.getQuantity() << ", " << m.getTitle();
+    }
+    else
+        output << "NULL";
+    return output;
+}

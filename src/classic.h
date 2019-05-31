@@ -9,7 +9,7 @@ using namespace std;
 //   classics (‘C’) are sorted by Release date, then Major actor
 
 class Classic : public Movie {
-
+    friend ostream & operator<<(ostream &, const Classic &);
 public:
     virtual ~Classic();
     Classic(const string &);      // data is set equal to parameter

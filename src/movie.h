@@ -5,11 +5,14 @@
 #include <fstream>
 using namespace std;
 
+//   comedy movie (‘F’) sorted by Title, then Year it released
+//   dramas (‘D’) are sorted by Director, then Title
+//   classics (‘C’) are sorted by Release date, then Major actor
+
 class Movie {
 public:
     virtual ~Movie();
     Movie();
-    Movie(const string &);      // data is set equal to parameter
 
     int getQuantity() const;
     char getGenre() const;
@@ -18,6 +21,7 @@ public:
     int getReleaseYear() const;
 
     void setData(const string &);
+    string removeSpace(string);
 
     void setGenre(char genre);
     void setQuantity(int quanity);

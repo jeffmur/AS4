@@ -44,3 +44,12 @@ bool Drama::operator<=(const Drama &rhs) const {
 bool Drama::operator>=(const Drama &rhs) const {
     return (*this > rhs) || (*this == rhs);
 }
+
+ostream &operator<<(ostream &output, const Drama &m) {
+    if(&m != nullptr){
+        cout << "Drama, " << m.getQuantity() << ", " << m.getTitle();
+    }
+    else
+        output << "NULL";
+    return output;
+}
