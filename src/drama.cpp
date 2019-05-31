@@ -1,6 +1,7 @@
 #include "drama.h"
 #include <vector>
 #include <sstream>
+#include <iomanip>
 
 Drama::~Drama() { }
 
@@ -47,7 +48,9 @@ bool Drama::operator>=(const Drama &rhs) const {
 
 ostream &operator<<(ostream &output, const Drama &m) {
     if(&m != nullptr){
-        cout << "Drama, " << m.getQuantity() << ", " << m.getTitle();
+        cout << "Drama"
+             << setw(10) << m.getQuantity() << " "
+             << setw(35) << m.getTitle();
     }
     else
         output << "NULL";

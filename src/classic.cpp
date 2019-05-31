@@ -2,6 +2,7 @@
 #include <vector>
 #include <sstream>
 #include <string>
+#include <iomanip>
 
 Classic::~Classic() { }
 
@@ -81,8 +82,10 @@ bool Classic::operator>=(const Classic &rhs) const {
 
 ostream &operator<<(ostream &output, const Classic &m) {
     if(&m != nullptr){
-        cout << "Classic, " << m.getQuantity() << ", " <<
-                m.getTitle() << ", " << m.getMajorActor();
+        cout << "Classic"
+             << setw(8) << m.getQuantity() << " "
+             << setw(35) << m.getTitle()
+             << setw(25) << m.getMajorActor();
     }
     else
         output << "NULL";

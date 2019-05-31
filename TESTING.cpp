@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <iomanip>
 // include header files to test functionality
 
 #include "src/customer.h"
@@ -47,6 +48,10 @@ void buildMovies(ifstream& infile) {
         return;
     }
     // build Trees ?
+    cout << " Genre"
+         << setw(12) << "Quantity"
+         << setw(20) << "Title"
+         << setw(38) << "Major Actor\n";
     for(;;){
         if(infile.eof()) { break; }
 
@@ -57,8 +62,8 @@ void buildMovies(ifstream& infile) {
 
         // comedy
         if(data[0] == 'F'){
-            Comedy *c = new Comedy(data);
-            cout << *c << endl;
+            Comedy *f = new Comedy(data);
+            cout << *f << endl;
         }
         // drama
         else if (data[0] == 'D') {

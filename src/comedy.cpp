@@ -1,7 +1,18 @@
 #include "comedy.h"
 #include <vector>
+#include <string>
 #include <sstream>
+#include <iomanip>
 
+ostream &operator<<(ostream &output, const Movie &m) {
+    if(&m != nullptr){
+        cout << m.getGenre() << ", " << m.getQuantity() << ", " <<
+             m.getDirector() << ", " << m.getTitle() << ", " << m.getReleaseYear();
+    }
+    else
+        output << "NULL";
+    return output;
+}
 Comedy::~Comedy() { }
 
 Comedy::Comedy(const string &s) : Movie(){
@@ -47,7 +58,9 @@ bool Comedy::operator>=(const Comedy &rhs) const {
 
 ostream &operator<<(ostream &output, const Comedy &m) {
     if(&m != nullptr){
-        cout << "Comedy, " << m.getQuantity() << ", " << m.getTitle();
+        cout << "Comedy"
+             << setw(9) << m.getQuantity() << " "
+             << setw(35) << m.getTitle();
     }
     else
         output << "NULL";
