@@ -1,3 +1,0 @@
-/home/jeffmur/UWB/343/AS4/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/jeffmur/UWB/343/AS4/cmake-build-debug/CMakeFiles/AS4.dir
-/home/jeffmur/UWB/343/AS4/cmake-build-debug/CMakeFiles/edit_cache.dir
