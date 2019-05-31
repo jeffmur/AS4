@@ -67,8 +67,8 @@ void buildMovies(ifstream& infile){
 
 int main() {
     //ifstream infileC("/home/jeffmur/UWB/343/AS4/data/data4customers.txt");
-    //ifstream infileC("data/data4customers.txt");
-    //buildCustomers(infileC);
+    ifstream infileC("data/data4customers.txt");
+    buildCustomers(infileC);
     ifstream infileM("data/data4movies.txt");
     buildMovies(infileM);
 }
