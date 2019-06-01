@@ -261,7 +261,7 @@ void BinTree<M>::display() const{
         char genre = this->root->data->getGenre();
         // Comedy == 'F'
         if(genre == 'F'){
-            cout << " Genre"
+            cout << "Genre "
                  << setw(12) << "Quantity"
                  << setw(20) << "Title"
                  << setw(29) << "Year\n";
@@ -269,7 +269,7 @@ void BinTree<M>::display() const{
         }
             // Drama == 'D'
         else if(genre == 'D'){
-            cout << " Genre"
+            cout << "Genre "
                  << setw(12) << "Quantity"
                  << setw(20) << "Title"
                  << setw(38) << "Director"

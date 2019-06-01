@@ -74,21 +74,19 @@ void buildMovies(ifstream& infile) {
             auto *c = new Classic(data);
             classicBST->insert(c);
         }
-
-        // Movies will assign each string to genre based on char
-        // Possible build tree function to initialize data
     }
-//    Classic *cA = new Classic("C, 10, Michael Curtiz, Casablanca, Ingrid Bergman 8 1942\r");
-//    Classic *cB = new Classic("C, 10, Michael Curtiz, Casablanca, Humphrey Bogart 8 1942\r");
-//    Comedy *fA = new Comedy("F, 10, Woody Allen, Annie Hall, 1977\r");
-//    cout << "cA == cB? " << ( *cA == *cB ? "True" : "False") << endl;
+
     comedyBST->display();
     classicBST->display();
     dramaBST->display();
+
+    // ADD TRANSACTIONS HERE?
+
+
+    // mem garbage collection
     delete dramaBST;
     delete comedyBST;
     delete classicBST;
-    cout << "HOLD" << endl;
 }
 
 int main() {
@@ -97,5 +95,6 @@ int main() {
     //buildCustomers(infileC);
     ifstream infileM("data/data4movies.txt");
     buildMovies(infileM);
+
     return 0;
 }
