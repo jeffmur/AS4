@@ -43,7 +43,7 @@ private:
         M* data;						    // pointer to data object
         Node* left;							// left subtree pointer
         Node* right;						// right subtree pointer
-        Node* duplicate = NULL;             // points to duplicate movie Node
+        //Node* duplicate = NULL;             // points to duplicate movie Node
                                             // (same title and director - different Major Actor)
     };
     Node* root;								// root of the tree
@@ -77,13 +77,13 @@ BinTree<M>::BinTree() {
 //------------------------- ~BinTree ---------------------------------
 // Deconstructor for BinTree
 template <class M>
-BinTree<M>::~BinTree() {
+BinTree<M>::~BinTree<M>() {
     // delete all data in tree
     makeEmpty();
     // delete root
     delete root;
     // set to NULL
-    root = nullptr;
+    root = NULL;
 }
 //------------------------- ~Node ---------------------------------
 // Deconstructor for Node - deletes all data and pointers
@@ -115,7 +115,6 @@ template <class M>
 void BinTree<M>::deleteRecursive(Node *current) {
     if(current == NULL)
         return;
-
     // if left isn't empty set to NULL
     // recurse until hit child
     if(current->left != NULL)
@@ -127,8 +126,8 @@ void BinTree<M>::deleteRecursive(Node *current) {
         deleteRecursive(current->right);
 
     // set both children to NULL
-    current->left = NULL;
-    current->right = NULL;
+    current->left = nullptr;
+    current->right = nullptr;
 
     delete current->data;
     current->data = NULL;

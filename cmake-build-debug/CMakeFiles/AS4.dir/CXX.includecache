@@ -36,18 +36,6 @@ src/comedy.h
 bst.h
 /home/jeffmur/UWB/343/AS4/bst.h
 
-/home/jeffmur/UWB/343/AS4/src/classic.cpp
-classic.h
-/home/jeffmur/UWB/343/AS4/src/classic.h
-vector
--
-sstream
--
-string
--
-iomanip
--
-
 /home/jeffmur/UWB/343/AS4/src/classic.h
 string
 -
@@ -58,18 +46,6 @@ fstream
 movie.h
 /home/jeffmur/UWB/343/AS4/src/movie.h
 
-/home/jeffmur/UWB/343/AS4/src/comedy.cpp
-comedy.h
-/home/jeffmur/UWB/343/AS4/src/comedy.h
-vector
--
-string
--
-sstream
--
-iomanip
--
-
 /home/jeffmur/UWB/343/AS4/src/comedy.h
 string
 -
@@ -79,12 +55,6 @@ fstream
 -
 movie.h
 /home/jeffmur/UWB/343/AS4/src/movie.h
-
-/home/jeffmur/UWB/343/AS4/src/customer.cpp
-customer.h
-/home/jeffmur/UWB/343/AS4/src/customer.h
-string
--
 
 /home/jeffmur/UWB/343/AS4/src/customer.h
 nodedata.h
@@ -98,16 +68,6 @@ iostream
 fstream
 -
 
-/home/jeffmur/UWB/343/AS4/src/drama.cpp
-drama.h
-/home/jeffmur/UWB/343/AS4/src/drama.h
-vector
--
-sstream
--
-iomanip
--
-
 /home/jeffmur/UWB/343/AS4/src/drama.h
 string
 -
@@ -117,10 +77,6 @@ fstream
 -
 movie.h
 /home/jeffmur/UWB/343/AS4/src/movie.h
-
-/home/jeffmur/UWB/343/AS4/src/hash.cpp
-hash.h
-/home/jeffmur/UWB/343/AS4/src/hash.h
 
 /home/jeffmur/UWB/343/AS4/src/hash.h
 customer.h
@@ -130,20 +86,6 @@ vector
 string
 -
 
-/home/jeffmur/UWB/343/AS4/src/movie.cpp
-movie.h
-/home/jeffmur/UWB/343/AS4/src/movie.h
-comedy.h
-/home/jeffmur/UWB/343/AS4/src/comedy.h
-classic.h
-/home/jeffmur/UWB/343/AS4/src/classic.h
-drama.h
-/home/jeffmur/UWB/343/AS4/src/drama.h
-vector
--
-sstream
--
-
 /home/jeffmur/UWB/343/AS4/src/movie.h
 string
 -
@@ -151,10 +93,6 @@ iostream
 -
 fstream
 -
-
-/home/jeffmur/UWB/343/AS4/src/nodedata.cpp
-nodedata.h
-/home/jeffmur/UWB/343/AS4/src/nodedata.h
 
 /home/jeffmur/UWB/343/AS4/src/nodedata.h
 string

@@ -48,9 +48,9 @@ void buildMovies(ifstream& infile) {
         cout << "File could not be opened." << endl;
         return;
     }
-    auto *comedyBST = new BinTree<Comedy>();
-    auto *classicBST = new BinTree<Classic>();
-    auto *dramaBST = new BinTree<Drama>();
+    auto comedyBST = new BinTree<Comedy>();
+    auto classicBST = new BinTree<Classic>();
+    auto dramaBST = new BinTree<Drama>();
     for(;;){
         if(infile.eof()) { break; }
 
@@ -62,19 +62,16 @@ void buildMovies(ifstream& infile) {
         // comedy
         if(data[0] == 'F'){
             auto *f = new Comedy(data);
-            //cout << *f << endl;
             comedyBST->insert(f);
         }
         // drama
         else if (data[0] == 'D') {
             auto *d = new Drama(data);
-            //cout << *d << endl;
             dramaBST->insert(d);
         }
         // classic
         else if (data[0] == 'C') {
             auto *c = new Classic(data);
-            //cout << *c << endl;
             classicBST->insert(c);
         }
 
@@ -88,7 +85,10 @@ void buildMovies(ifstream& infile) {
     comedyBST->display();
     classicBST->display();
     dramaBST->display();
-
+    delete dramaBST;
+    delete comedyBST;
+    delete classicBST;
+    cout << "HOLD" << endl;
 }
 
 int main() {
@@ -97,4 +97,5 @@ int main() {
     //buildCustomers(infileC);
     ifstream infileM("data/data4movies.txt");
     buildMovies(infileM);
+    return 0;
 }

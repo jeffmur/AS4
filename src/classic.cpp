@@ -39,31 +39,20 @@ bool Classic::operator<(const Classic &rhs) const {
     // compare by Release Date
     if(getReleaseYear() < rhs.getReleaseYear())
         return true;
+    else if(getReleaseYear() == rhs.getReleaseYear()) {
+        if(getReleaseMonth() < rhs.getReleaseMonth())
+            return true;
 
-    // same year then compare month
-    else if(getReleaseYear() == rhs.getReleaseYear()){
-        if(getReleaseMonth() <= rhs.getReleaseMonth())
-            if(getMajorActor() < rhs.getMajorActor())
-                return true;
+        if(getMajorActor() < rhs.getMajorActor())
+            return true;
     }
+
     // otherwise false (equal or greater than)
     return false;
 }
 
 bool Classic::operator>(const Classic &rhs) const {
-
-    // compare by Release Date
-    if (getReleaseYear() > rhs.getReleaseYear())
-        return true;
-
-    // same year then compare month
-    else if (getReleaseYear() == rhs.getReleaseYear()) {
-        if (getReleaseMonth() >= rhs.getReleaseMonth())
-            if (getMajorActor() > rhs.getMajorActor())
-                return true;
-    }
-    // otherwise false (equal or greater than)
-    return false;
+    return !(*this < rhs) && (*this != rhs);
 }
 
 bool Classic::operator<=(const Classic &rhs) const {
