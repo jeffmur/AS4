@@ -6,9 +6,9 @@
 
 #IncludeRegexTransform: 
 
-/home/jeffmur/UWB/343/AS4/src/classic.cpp
+C:/Users/alexa/AS4/src/classic.cpp
 classic.h
-/home/jeffmur/UWB/343/AS4/src/classic.h
+C:/Users/alexa/AS4/src/classic.h
 vector
 -
 sstream
@@ -18,7 +18,7 @@ string
 iomanip
 -
 
-/home/jeffmur/UWB/343/AS4/src/classic.h
+C:/Users/alexa/AS4/src/classic.h
 string
 -
 iostream
@@ -26,9 +26,9 @@ iostream
 fstream
 -
 movie.h
-/home/jeffmur/UWB/343/AS4/src/movie.h
+C:/Users/alexa/AS4/src/movie.h
 
-/home/jeffmur/UWB/343/AS4/src/movie.h
+C:/Users/alexa/AS4/src/movie.h
 string
 -
 iostream
