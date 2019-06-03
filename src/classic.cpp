@@ -20,8 +20,10 @@ Classic::Classic(const string &s) : Movie() {
     setTitle(removeSpace(result[3]));
     string temp = result[4];
     int length = temp.length();
+    if(temp[length-1] == '\r')
+        temp = temp.substr(0, length-1);
     setReleaseYear(stoi(temp.substr(length-5, length)));
-    setReleaseMonth(stoi(temp.substr(length-8, length-6)));
+    setReleaseMonth(stoi(temp.substr(length-6, length-4)));
     setMajorActor(removeSpace(temp.substr(0, length-8)));
 }
 
