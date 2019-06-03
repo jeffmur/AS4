@@ -1,4 +1,3 @@
-Hi Alex,
 Welcome to the todo.txt
 
 Not sure if you use Trello, however it is great for cross platform &
