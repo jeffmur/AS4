@@ -9,7 +9,7 @@
 #include "src/classic.h"
 #include "src/drama.h"
 #include "src/comedy.h"
-#include "bst.h"
+#include "src/bst.h"
 
 using namespace std;
 

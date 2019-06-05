@@ -6,6 +6,7 @@
 
 #IncludeRegexTransform: 
 
+<<<<<<< HEAD
 /home/jeffmur/UWB/343/AS4/src/classic.cpp
 classic.h
 /home/jeffmur/UWB/343/AS4/src/classic.h
@@ -29,6 +30,13 @@ movie.h
 /home/jeffmur/UWB/343/AS4/src/movie.h
 
 /home/jeffmur/UWB/343/AS4/src/movie.h
+=======
+/home/jeffmur/UWB/343/AS4/src/nodedata.cpp
+nodedata.h
+/home/jeffmur/UWB/343/AS4/src/nodedata.h
+
+/home/jeffmur/UWB/343/AS4/src/nodedata.h
+>>>>>>> 461f11047f7006786b7de0b86980d162acda9c78
 string
 -
 iostream
