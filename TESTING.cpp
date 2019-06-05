@@ -9,7 +9,7 @@
 #include "src/classic.h"
 #include "src/drama.h"
 #include "src/comedy.h"
-#include "src/bst.h"
+#include "src/bst.hpp"
 
 using namespace std;
 
@@ -75,7 +75,7 @@ void buildMovies(ifstream& infile) {
             classicBST->insert(c);
         }
     }
-
+    cout << endl;
     comedyBST->display();
     classicBST->display();
     dramaBST->display();
@@ -91,8 +91,8 @@ void buildMovies(ifstream& infile) {
 
 int main() {
     //ifstream infileC("/home/jeffmur/UWB/343/AS4/data/data4customers.txt");
-    //ifstream infileC("data/data4customers.txt");
-    //buildCustomers(infileC);
+    ifstream infileC("data/data4customers.txt");
+    buildCustomers(infileC);
     ifstream infileM("data/data4movies.txt");
     buildMovies(infileM);
 

@@ -90,7 +90,7 @@
 		<Unit filename="/home/jeffmur/UWB/343/AS4/src/borrow.h">
 			<Option target="AS4"/>
 		</Unit>
-		<Unit filename="/home/jeffmur/UWB/343/AS4/src/bst.h">
+		<Unit filename="/home/jeffmur/UWB/343/AS4/src/bst.hpp">
 			<Option target="AS4"/>
 		</Unit>
 		<Unit filename="/home/jeffmur/UWB/343/AS4/src/classic.cpp">

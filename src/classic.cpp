@@ -23,7 +23,7 @@ Classic::Classic(const string &s) : Movie() {
     if(temp[length-1] == '\r')
         temp = temp.substr(0, length-1);
     setReleaseYear(stoi(temp.substr(length-5, length)));
-    setReleaseMonth(stoi(temp.substr(length-6, length-4)));
+    setReleaseMonth(stoi(temp.substr(length-8, length-6)));
     setMajorActor(removeSpace(temp.substr(0, length-8)));
 }
 
@@ -71,7 +71,7 @@ ostream &operator<<(ostream &output, const Classic &m) {
              << setw(8) << m.getQuantity() << " "
              << setw(35) << m.getTitle()
              << setw(25) << m.getMajorActor()
-             << setw(12) << m.getReleaseYear();
+             << setw(8) << m.getReleaseMonth() << " " << m.getReleaseYear();
     }
     else
         output << "NULL";

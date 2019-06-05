@@ -5,7 +5,7 @@ set(CMAKE_CXX_STANDARD 14)
 
 add_executable(AS4 TESTING.cpp
                 src/borrow.h
-                src/bst.h
+                src/bst.hpp
                 src/classic.cpp
                 src/classic.h
                 src/comedy.cpp

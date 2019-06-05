@@ -2,8 +2,8 @@
 // Created: 4/16/19
 // Last Modified:
 
-#ifndef BINTREE_H
-#define BINTREE_H
+#ifndef BINTREE_HPP
+#define BINTREE_HPP
 
 #include <string>
 #include <iostream>
@@ -66,7 +66,7 @@ private:
 
 };
 
-#endif  /* BINTREE_H */
+#endif  /* BINTREE_HPP */
 
 //------------------------- BinTree ---------------------------------
 // Constructor for BinTree
@@ -273,8 +273,8 @@ void BinTree<M>::display() const{
             cout << "Genre "
                  << setw(12) << "Quantity"
                  << setw(20) << "Title"
-                 << setw(38) << "Director"
-                 << setw(13) << "Year\n";
+                 << setw(36) << "Director"
+                 << setw(15) << "Year\n";
             cout << *this << endl;
         }
             // Classic == 'C'
@@ -282,8 +282,8 @@ void BinTree<M>::display() const{
             cout << " Genre"
                  << setw(12) << "Quantity"
                  << setw(20) << "Title"
-                 << setw(38) << "Major Actor"
-                 << setw(13) << "Year\n";
+                 << setw(36) << "Major Actor"
+                 << setw(15) << "Year\n";
             cout << *this << endl;
         }
     }
