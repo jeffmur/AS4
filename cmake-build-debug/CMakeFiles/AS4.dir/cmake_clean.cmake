@@ -1,16 +1,14 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/AS4.dir/src/classic.cpp.obj"
-  "CMakeFiles/AS4.dir/src/comedy.cpp.obj"
-  "CMakeFiles/AS4.dir/src/customer.cpp.obj"
-  "CMakeFiles/AS4.dir/src/drama.cpp.obj"
-  "CMakeFiles/AS4.dir/src/hash.cpp.obj"
-  "CMakeFiles/AS4.dir/src/movie.cpp.obj"
-  "CMakeFiles/AS4.dir/src/nodedata.cpp.obj"
-  "CMakeFiles/AS4.dir/TESTING.cpp.obj"
+  "CMakeFiles/AS4.dir/TESTING.cpp.o"
+  "CMakeFiles/AS4.dir/src/classic.cpp.o"
+  "CMakeFiles/AS4.dir/src/comedy.cpp.o"
+  "CMakeFiles/AS4.dir/src/customer.cpp.o"
+  "CMakeFiles/AS4.dir/src/drama.cpp.o"
+  "CMakeFiles/AS4.dir/src/hash.cpp.o"
+  "CMakeFiles/AS4.dir/src/movie.cpp.o"
+  "CMakeFiles/AS4.dir/src/nodedata.cpp.o"
   "AS4.pdb"
-  "AS4.exe"
-  "AS4.exe.manifest"
-  "libAS4.dll.a"
+  "AS4"
 )
 
 # Per-language clean rules from dependency scanning.

@@ -9,7 +9,7 @@
 #include "src/classic.h"
 #include "src/drama.h"
 #include "src/comedy.h"
-#include "bst.h"
+#include "src/bst.hpp"
 
 using namespace std;
 
@@ -48,9 +48,9 @@ void buildMovies(ifstream& infile) {
         cout << "File could not be opened." << endl;
         return;
     }
-    auto *comedyBST = new BinTree<Comedy>();
-    auto *classicBST = new BinTree<Classic>();
-    auto *dramaBST = new BinTree<Drama>();
+    auto comedyBST = new BinTree<Comedy>();
+    auto classicBST = new BinTree<Classic>();
+    auto dramaBST = new BinTree<Drama>();
     for(;;){
         if(infile.eof()) { break; }
 
@@ -62,47 +62,39 @@ void buildMovies(ifstream& infile) {
         // comedy
         if(data[0] == 'F'){
             auto *f = new Comedy(data);
-            //cout << *f << endl;
             comedyBST->insert(f);
         }
         // drama
         else if (data[0] == 'D') {
             auto *d = new Drama(data);
-            //cout << *d << endl;
             dramaBST->insert(d);
         }
         // classic
         else if (data[0] == 'C') {
             auto *c = new Classic(data);
-            //cout << *c << endl;
             classicBST->insert(c);
         }
-
-        // Movies will assign each string to genre based on char
-        // Possible build tree function to initialize data
     }
-//    Classic *cA = new Classic("C, 10, Michael Curtiz, Casablanca, Ingrid Bergman 8 1942\r");
-//    Classic *cB = new Classic("C, 10, Michael Curtiz, Casablanca, Humphrey Bogart 8 1942\r");
-//    Comedy *fA = new Comedy("F, 10, Woody Allen, Annie Hall, 1977\r");
-//    cout << "cA == cB? " << ( *cA == *cB ? "True" : "False") << endl;
+    cout << endl;
     comedyBST->display();
     classicBST->display();
     dramaBST->display();
 
-}
+    // ADD TRANSACTIONS HERE?
 
-void processTransactions(ifstream& infile)
-{
 
+    // mem garbage collection
+    delete dramaBST;
+    delete comedyBST;
+    delete classicBST;
 }
 
 int main() {
     //ifstream infileC("/home/jeffmur/UWB/343/AS4/data/data4customers.txt");
-    //ifstream infileC("data/data4customers.txt");
-    //buildCustomers(infileC);
+    ifstream infileC("data/data4customers.txt");
+    buildCustomers(infileC);
     ifstream infileM("data/data4movies.txt");
     buildMovies(infileM);
-    ifstream infileT("data/data4commands.txt");
-    processTransactions(infileT);
 
+    return 0;
 }
