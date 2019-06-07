@@ -36,7 +36,6 @@ Classic::Classic(const string &s) : Movie() {
     setMajorActor(end[1] + " " + end[2]);
     setReleaseMonth(stoi(end[3]));
     setReleaseYear(stoi(end[4]));
-
 }
 
 void Classic::setReleaseMonth(int releaseMonth) { Classic::releaseMonth = releaseMonth; }
