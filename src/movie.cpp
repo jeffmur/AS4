@@ -49,7 +49,7 @@ int Movie::getReleaseYear() const { return releaseYear; }
 //------------------------- operator==,!= ------------------------------------
 bool Movie::operator==(const Movie& rhs) const {
     if(genre == rhs.genre){
-        if(title == rhs.title && director == rhs.director)
+        if(title == rhs.title) //removed director check
             return true;
     }
     return false;

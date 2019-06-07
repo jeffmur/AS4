@@ -11,6 +11,7 @@
 #include <vector>
 #include <iostream>
 #include <fstream>
+#include "transaction.h"
 
 using namespace std;
 
@@ -20,10 +21,12 @@ public:
     int ID;
     Customer(string last, string first, int ID);		// constructor from strings to NodeData
     ~Customer();								        // destructor
+    void displayHistory();
     //vector<Transactions*> customerHistory;
 
 private:
     NodeData* name;
+    vector<Transaction *> * history;
 
 };
 

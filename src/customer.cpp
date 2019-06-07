@@ -18,3 +18,12 @@ ostream& operator<<(ostream& output, const Customer& nd) {
         output << "NULL";
     return output;
 }
+
+void Customer::displayHistory()
+{
+    for(int i = 0; 0 < history->size(); i++)
+    {
+        //display history here
+        cout << "history for customer " << ID;
+    }
+}

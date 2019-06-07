@@ -12,7 +12,7 @@
 #include "src/bst.hpp"
 
 using namespace std;
-
+/*
 void buildCustomers(ifstream& infile){
     if (!infile) {
         cout << "File could not be opened." << endl;
@@ -48,9 +48,7 @@ void buildMovies(ifstream& infile) {
         cout << "File could not be opened." << endl;
         return;
     }
-    auto comedyBST = new BinTree<Comedy>();
-    auto classicBST = new BinTree<Classic>();
-    auto dramaBST = new BinTree<Drama>();
+
     for(;;){
         if(infile.eof()) { break; }
 
@@ -89,6 +87,7 @@ void buildMovies(ifstream& infile) {
     delete classicBST;
 }
 
+/*
 int main() {
     //ifstream infileC("/home/jeffmur/UWB/343/AS4/data/data4customers.txt");
     ifstream infileC("data/data4customers.txt");
@@ -98,3 +97,4 @@ int main() {
 
     return 0;
 }
+*/

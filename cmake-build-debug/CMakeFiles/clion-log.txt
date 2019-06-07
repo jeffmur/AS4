@@ -1,4 +1,4 @@
-/home/jeffmur/IDES/clion/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/jeffmur/UWB/343/AS4
+"C:\Program Files\JetBrains\CLion 2018.3.4\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - MinGW Makefiles" C:\Users\alexa\AS4
 -- Configuring done
 -- Generating done
--- Build files have been written to: /home/jeffmur/UWB/343/AS4/cmake-build-debug
+-- Build files have been written to: C:/Users/alexa/AS4/cmake-build-debug
