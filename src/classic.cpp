@@ -7,24 +7,35 @@
 Classic::~Classic() { }
 
 Classic::Classic(const string &s) : Movie() {
-    stringstream ss(s);
-    vector<string> result;
     string token;
-    char del = ',';
-    while(getline(ss, token, del)){
+    // parse entire string s
+    stringstream s1(s);
+    vector<string> result;
+    // add to result vector
+    while(getline(s1, token, ',')){
         result.push_back(token);
     }
+    // set values (Genre, Quantity, Director and Title)
     setGenre(result[0][0]);
     setQuantity(stoi(result[1]));
     setDirector(removeSpace(result[2]));
     setTitle(removeSpace(result[3]));
     string temp = result[4];
+
+    // Cross-Platform check (removes \r from temp)
     int length = temp.length();
     if(temp[length-1] == '\r')
         temp = temp.substr(0, length-1);
-    setReleaseYear(stoi(temp.substr(length-5, length)));
-    setReleaseMonth(stoi(temp.substr(length-8, length-6)));
-    setMajorActor(removeSpace(temp.substr(0, length-8)));
+
+    // parse classic ending data with ' ' decimeter
+    vector<string> end;
+    stringstream s2(temp);
+    while(getline(s2, token, ' ')){
+        end.push_back(token);
+    }
+    setMajorActor(end[1] + " " + end[2]);
+    setReleaseMonth(stoi(end[3]));
+    setReleaseYear(stoi(end[4]));
 }
 
 void Classic::setReleaseMonth(int releaseMonth) { Classic::releaseMonth = releaseMonth; }
