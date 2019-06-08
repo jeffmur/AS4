@@ -39,16 +39,16 @@ void Hash::insert(Customer &customer) {
     table[index] = toAdd;
 }
 
-bool Hash::find(int custID) {
+Customer* Hash::find(int custID) {
     int index = hashFunction(custID);
     Node* cur = table[index];
 
     while(cur != nullptr){
         if(custID == cur->data->ID)
-            return true;
+            return cur->data;
         cur = cur->next;
     }
-    return false;
+    return nullptr;
 }
 
 // delete and NULL target Node based on customer ID

@@ -3,7 +3,9 @@ project(AS4)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(AS4 TESTING.cpp
+add_executable(AS4
+                src/store.h
+                src/store.cpp
                 src/borrow.h
                 src/bst.hpp
                 src/classic.cpp

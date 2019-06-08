@@ -4,6 +4,8 @@
 #include <string>
 #include <iomanip>
 
+Classic::Classic() { }
+
 Classic::~Classic() { }
 
 Classic::Classic(const string &s) : Movie() {

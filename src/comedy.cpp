@@ -13,6 +13,7 @@ ostream &operator<<(ostream &output, const Movie &m) {
         output << "NULL";
     return output;
 }
+Comedy::Comedy(){ }
 Comedy::~Comedy() { }
 
 Comedy::Comedy(const string &s) : Movie(){

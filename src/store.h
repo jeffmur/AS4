@@ -36,6 +36,8 @@ public:
     void buildMovies(ifstream& infile);
     void processCommands(ifstream& infile);
     void displayAll() const;
+    string combineV(vector<string> data);
+    void addTransaction(int custID, Movie* ptr);
 
 private:
     BinTree<Comedy> *comedyBST;

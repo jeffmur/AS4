@@ -9,6 +9,7 @@
 #include <iostream>
 #include <fstream>
 #include <iomanip>
+#include "classic.h"
 
 using namespace std;
 
@@ -33,7 +34,9 @@ public:
     bool isEmpty() const;					// true if tree is empty, otherwise false
     void makeEmpty();						// Make the tree empty so isEmpty returns true
     bool insert(M* iteM);
-    bool retrieve(M &targetData, M* &pointer) const;
+    bool returnMovie(string data, M* &pointer);
+    bool returnClassic(string data, M* &pointer);
+    bool retrieve(M* targetData, M* &pointer) const;
     void printInOrder() const;
     void display() const;
 
@@ -44,7 +47,7 @@ private:
         M* data;						    // pointer to data object
         Node* left;							// left subtree pointer
         Node* right;						// right subtree pointer
-        //Node* duplicate = NULL;             // points to duplicate movie Node
+        //Node* duplicate = NULL;           // points to duplicate movie Node
                                             // (same title and director - different Major Actor)
     };
     Node* root;								// root of the tree
@@ -60,7 +63,7 @@ private:
 // utility functions
     void deleteRecursive(Node*);
     bool setRecursive(Node *base, M *data) const;
-    bool findRecursive(Node *base, M *target) const;
+    bool findRecursive(Node *base, M *target, M* &ptr) const;
     bool compareRecur(Node *lhs, Node *rhs ) const;
     void inorderHelper(Node *cur) const;
 
@@ -141,7 +144,7 @@ void BinTree<M>::deleteRecursive(Node *current) {
 // end of makeEmpty
 
 //------------------------- compareRecur ---------------------------------
-// Returns true if no execption is found, otherise, return false;
+// Returns true if no exception is found, otherwise, return false;
 // Note: Will return false if both trees are empty.
 template <class M>
 bool BinTree<M>::compareRecur( Node* lhs, Node* rhs ) const{
@@ -219,20 +222,47 @@ bool BinTree<M>::setRecursive(Node *base, M *toAdd) const{
 }
 // end of insert
 
+
+template <class M>
+bool BinTree<M>::returnMovie(string data, M *&pointer) {
+    M *MovieData = new M(data);
+    if(retrieve(MovieData, pointer))
+        if(pointer->quantity > 0)
+            pointer->quantity = pointer->quantity-1;
+    delete MovieData;
+}
+
+template <class M>
+bool BinTree<M>::returnClassic(string data, M *&pointer) {
+    // flip data
+    string actor = data.substr(6, data.length());
+    int month = stoi(data.substr(0, 2));
+    int year = stoi(data.substr(2,4));
+    // assign data to flipped
+    Classic *MovieData = new Classic();
+    MovieData->setMajorActor(actor);
+    MovieData->setReleaseYear(year);
+    MovieData->setReleaseMonth(month);
+
+    if(retrieve(MovieData, pointer))
+        if(pointer->quantity > 0)
+            pointer->quantity = pointer->quantity-1;
+    delete MovieData;
+}
+
+
 //------------------------- retrieve ---------------------------------
 // Returns true if targetData is found, otherwise return false.
 // Postconditions: pointer is assigned to the memory address of the M if found
 // otherwise, nullptr
 // Modified operator<< in M.cpp to take in nullptr -> "NULL"
 template <class M>
-bool BinTree<M>::retrieve(M &targetData, M* &pointer) const{
+bool BinTree<M>::retrieve(M* targetData, M* &pointer) const{
+
+    if(findRecursive(root, targetData, pointer))
+        return true;
 
     pointer = nullptr;
-
-    if(findRecursive(root, &targetData)){
-        pointer = &targetData;
-        return true;
-    }
     return false;
 
 }
@@ -241,19 +271,21 @@ bool BinTree<M>::retrieve(M &targetData, M* &pointer) const{
 // otherwise, return false.
 // Postconditions: BinTree is unchanged
 template <class M>
-bool BinTree<M>::findRecursive(Node *current, M *target) const{
+bool BinTree<M>::findRecursive(Node *current, M *target, M* &ptr) const{
     // rainy day
     if(current == nullptr)
         return false;
     // base case
-    if(*target == *current->data)
+    if(*target == *current->data){
+        ptr = current->data;
         return true;
+    }
         // greater than (right subtree)
     else if(*target > *current->data)
-        findRecursive(current->right, target);
+        findRecursive(current->right, target, ptr);
     else
         // less than (left subtree)
-        findRecursive(current->left, target);
+        findRecursive(current->left, target, ptr);
 }
 // end of retrieve
 template <class M>

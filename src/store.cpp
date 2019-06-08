@@ -25,6 +25,18 @@ Store::~Store()
     //delete allTransactions;
 }
 
+// Comedies: Title,
+// Classic: Month Year Major Actor
+// Drama: Director, Title,
+
+string Store::combineV(vector<string> v){
+    string result;
+    for(int i = 4; i < v.size(); i++){
+        result += (v[i] + " ");
+    }
+    return result;
+}
+
 
 void Store::buildMovies(ifstream& infile) {
     if (!infile) {
@@ -116,41 +128,92 @@ void Store::processCommands(ifstream &infile)
         {
             continue;
         }
-        char commandType;
-        infile >> commandType;
+        string line;
+        getline(infile, line);
+        char commandType = line[0];
 
-        switch(commandType)
-        {
+        // Cross-Platform check (removes \r from temp)
+        int length = line.length();
+        if(line[length-1] == '\r')
+            line = line.substr(0, length-1);
+
+        string token;
+        // parse entire string s
+        stringstream s1(line);
+        vector<string> result;
+        // add to result vector
+        while(getline(s1, token, ' ')){
+            result.push_back(token);
+        }
+
+        switch(commandType) {
             case 'I': {
-//                Inventory *inventoryAction = new Inventory(this, infile);
-//                allTransactions->push_back((*inventoryAction));
-//                inventoryAction->process();
-//                break;
+                cout << endl;
+                classicBST->display();
+                comedyBST->display();
+                dramaBST->display();
+                break;
             }
             case 'H': {
-//                History *historyAction = new History(this, infile);
-//                allTransactions->push_back((*historyAction));
-//                historyAction->process();
-//                break;
+                customerHashTable->find(stoi(result[1]))->displayHistory();
+                break;
             }
             case 'B': {
-//                Borrow *borrowAction = new Borrow(this, infile);
-//                allTransactions->push_back((*borrowAction));
-//                borrowAction->process();
-//                break;
+                int custID = stoi(result[1]);
+                char genre = result[3][0];
+                string data = combineV(result);
+
+                if(result[2] == "D"){
+                    switch(genre){
+                        case 'F': {
+                            data = "F, -1, XXX, "+data;
+                            Comedy *ptr = nullptr;
+                            comedyBST->returnMovie(data, ptr);
+                            addTransaction(custID, ptr);
+                            break;
+                        }
+                        case 'C': { // 3 1971 Ruth Gordon
+//                            Classic *ptr = nullptr;
+//                            classicBST->returnMovie(data, ptr);
+//                            addTransaction(custID, ptr);
+                            break;
+                        }
+                        case 'D': {
+                            data = "D, -1, "+data+"0000";
+                            Drama *ptr = nullptr;
+                            dramaBST->returnMovie(data, ptr);
+                            addTransaction(custID, ptr);
+                            break;
+                        }
+                        default: {cout << genre << " is not a valid genre!" << endl; break;}
+                    }
+                }
+                else{
+                    cout << "Not a valid media type!" << endl;
+                }
+                break;
             }
             case 'R': {
 //                Return *returnAction = new Return(this, infile);
 //                allTransactions->push_back((*returnAction));
 //                returnAction->process();
 //                break;
-            }
-            default: {
+                cout << "Return: " << line << endl;
                 break;
             }
+            default:
+                break;
         }
     }
 
+
+}
+
+void Store::addTransaction(int custID, Movie *ptr) {
+    if(customerHashTable->find(custID) && ptr){
+        customerHashTable->find(custID)->addHistory("Borrowed " + ptr->getTitle());
+        allTransactions.push_back(to_string(custID) + " Borrowed " + ptr->getTitle());
+    }
 
 }
 
@@ -168,9 +231,8 @@ int main() {
     store->buildCustomers(infileC);
     ifstream infileM("data/data4movies.txt");
     store->buildMovies(infileM);
-    //ifstream infileT("data/data4commands.txt");
-    //store->processCommands(infileT);
-    store->displayAll();
+    ifstream infileT("data/data4commands.txt");
+    store->processCommands(infileT);
 
     delete store;
 

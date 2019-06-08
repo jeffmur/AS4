@@ -1,14 +1,3 @@
-Welcome to the todo.txt
-
-Not sure if you use Trello, however it is great for cross platform &
-teams. Link: https://trello.com/invite/b/bbt3mP3i/8079fe204045cf718178507f8a0e8f81/as4
-
-OR
-
-* We can keep all todo's aka deliverables in here w/ current progress)
-
-Discord when possible (contact my cell)
-
 -------- Availability -------------
 
 Jeffrey:
@@ -21,16 +10,6 @@ Alex:
     Best contacted over discord Voxel#3968
     
 --------Current Progress---------
-* Create mask header files for easier development
-* Use UML and architecture
-* Finished Customer and HashTable (vector & linked list)
-** No Memory Leaks with size 10
-** Size 100 would be O(1) in all cases but 
-** Size 10 is O(n) worst case, otherwise O(1) 
-*
-* Take care of transactions if possible &|| header files
-* 
-* I'll try to add notes as much as possible 
-*
-
-- Enjoy learning Github LMK if you have questions
+*** Need to finish Classic
+** Ran into issues with Template Classic
+** Otherwise, it works well.

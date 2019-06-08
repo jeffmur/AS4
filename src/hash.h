@@ -20,7 +20,7 @@ public:
     //void makeEmpty();						// make the table empty so isEmpty returns true
     int hashFunction(int id);               // ID % size
     void insert(Customer &customer);        // add NodeData (customer info)
-    bool find(int customerID);
+    Customer* find(int customerID);
     bool remove(int customerID);
     void display();
 

@@ -11,6 +11,7 @@ using namespace std;
 class Comedy : public Movie {
     friend ostream & operator<<(ostream &, const Comedy &);
 public:
+    Comedy();
     virtual ~Comedy();
     Comedy(const string &);      // data is set equal to parameter
 
