@@ -19,11 +19,6 @@
 #include "drama.h"
 #include "comedy.h"
 #include "bst.hpp"
-#include "transaction.h"
-#include "history.h"
-#include "inventory.h"
-#include "borrow.h"
-#include "return.h"
 
 using namespace std;
 class Store
@@ -37,7 +32,7 @@ public:
     void processCommands(ifstream& infile);
     void displayAll() const;
     string combineV(vector<string> data);
-    void addTransaction(int custID, Movie* ptr);
+    void addTransaction(string action, int custID, Movie* ptr);
 
 private:
     BinTree<Comedy> *comedyBST;

@@ -20,6 +20,9 @@ public:
     bool operator<=(const Classic &) const;
     bool operator>=(const Classic &) const;
 
+    bool operator==(const Classic &) const;
+    bool operator!=(const Classic &) const;
+
     void setReleaseMonth(int releaseMonth);
     int getReleaseMonth() const;
 

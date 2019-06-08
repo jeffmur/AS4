@@ -6,7 +6,6 @@
 #define CUSTOMER_H
 
 #include "nodedata.h"
-//#include "transaction.h"
 #include <string>
 #include <vector>
 #include <iostream>

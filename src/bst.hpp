@@ -34,8 +34,9 @@ public:
     bool isEmpty() const;					// true if tree is empty, otherwise false
     void makeEmpty();						// Make the tree empty so isEmpty returns true
     bool insert(M* iteM);
+    bool borrowMovie(string data, M* &pointer);
     bool returnMovie(string data, M* &pointer);
-    bool returnClassic(string data, M* &pointer);
+    bool manageClassic(string data, M* &pointer, int amount);
     bool retrieve(M* targetData, M* &pointer) const;
     void printInOrder() const;
     void display() const;
@@ -66,6 +67,7 @@ private:
     bool findRecursive(Node *base, M *target, M* &ptr) const;
     bool compareRecur(Node *lhs, Node *rhs ) const;
     void inorderHelper(Node *cur) const;
+    string removeSpace(string s);
 
 };
 
@@ -222,9 +224,17 @@ bool BinTree<M>::setRecursive(Node *base, M *toAdd) const{
 }
 // end of insert
 
-
 template <class M>
 bool BinTree<M>::returnMovie(string data, M *&pointer) {
+    M *MovieData = new M(data);
+    if(retrieve(MovieData, pointer))
+        if(pointer->quantity > 0)
+            pointer->quantity = pointer->quantity+1;
+    delete MovieData;
+}
+
+template <class M>
+bool BinTree<M>::borrowMovie(string data, M *&pointer) {
     M *MovieData = new M(data);
     if(retrieve(MovieData, pointer))
         if(pointer->quantity > 0)
@@ -232,24 +242,29 @@ bool BinTree<M>::returnMovie(string data, M *&pointer) {
     delete MovieData;
 }
 
+
 template <class M>
-bool BinTree<M>::returnClassic(string data, M *&pointer) {
+bool BinTree<M>::manageClassic(string data, M *&pointer, int amount){
     // flip data
-    string actor = data.substr(6, data.length());
+    string actor = removeSpace(data.substr(7, data.length()));
     int month = stoi(data.substr(0, 2));
     int year = stoi(data.substr(2,4));
     // assign data to flipped
     Classic *MovieData = new Classic();
+    MovieData->setGenre('C');
     MovieData->setMajorActor(actor);
     MovieData->setReleaseYear(year);
     MovieData->setReleaseMonth(month);
 
     if(retrieve(MovieData, pointer))
         if(pointer->quantity > 0)
-            pointer->quantity = pointer->quantity-1;
+            pointer->quantity = pointer->quantity+amount;
+        else {
+            cout << pointer->getTitle() << " there are no more copies available?" << endl;
+        }
+
     delete MovieData;
 }
-
 
 //------------------------- retrieve ---------------------------------
 // Returns true if targetData is found, otherwise return false.
@@ -348,6 +363,18 @@ void BinTree<M>::inorderHelper(BinTree::Node *current) const {
 }
 // end of printInOrder
 
+template <class M>
+string BinTree<M>::removeSpace(string old){
+    string result;
+    int l = old.length();
+    if(old[0] == *" "){
+        result = old.substr(1, l);
+    }
+    if(old[l-1] == *" "){
+        result = old.substr(0, l-1);
+    }
+    return result;
+}
 
 
 

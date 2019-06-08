@@ -100,15 +100,15 @@ void Store::buildCustomers(ifstream& infile){
             customerHashTable->insert(*c);
         }
     }
-    customerHashTable->display();
+    //customerHashTable->display();
 
     bool found = customerHashTable->find(4444);
-    cout << "Found 4444? " << ( found ? "True" : "False") << endl;
+    //cout << "Found 4444? " << ( found ? "True" : "False") << endl;
 
     bool deleted = customerHashTable->remove(2000);
-    cout << "Deleted 2000? " << ( deleted ? "True" : "False") << endl;
+    //cout << "Deleted 2000? " << ( deleted ? "True" : "False") << endl;
 
-    customerHashTable->display();
+    //customerHashTable->display();
 }
 
 void Store::processCommands(ifstream &infile)
@@ -149,9 +149,7 @@ void Store::processCommands(ifstream &infile)
         switch(commandType) {
             case 'I': {
                 cout << endl;
-                classicBST->display();
-                comedyBST->display();
-                dramaBST->display();
+                displayAll();
                 break;
             }
             case 'H': {
@@ -168,51 +166,76 @@ void Store::processCommands(ifstream &infile)
                         case 'F': {
                             data = "F, -1, XXX, "+data;
                             Comedy *ptr = nullptr;
-                            comedyBST->returnMovie(data, ptr);
-                            addTransaction(custID, ptr);
+                            comedyBST->borrowMovie(data, ptr);
+                            addTransaction("Borrowed", custID, ptr);
                             break;
                         }
                         case 'C': { // 3 1971 Ruth Gordon
-//                            Classic *ptr = nullptr;
-//                            classicBST->returnMovie(data, ptr);
-//                            addTransaction(custID, ptr);
+                            Classic *ptr = nullptr;
+                            classicBST->manageClassic(data, ptr, -1);
+                            addTransaction("Borrowed", custID, ptr);
                             break;
                         }
                         case 'D': {
                             data = "D, -1, "+data+"0000";
                             Drama *ptr = nullptr;
-                            dramaBST->returnMovie(data, ptr);
-                            addTransaction(custID, ptr);
+                            dramaBST->borrowMovie(data, ptr);
+                            addTransaction("Borrowed", custID, ptr);
                             break;
                         }
                         default: {cout << genre << " is not a valid genre!" << endl; break;}
                     }
                 }
                 else{
-                    cout << "Not a valid media type!" << endl;
+                    cout << result[2] << " is not a valid media type!" << endl;
                 }
                 break;
             }
             case 'R': {
-//                Return *returnAction = new Return(this, infile);
-//                allTransactions->push_back((*returnAction));
-//                returnAction->process();
-//                break;
-                cout << "Return: " << line << endl;
+                int custID = stoi(result[1]);
+                char genre = result[3][0];
+                string data = combineV(result);
+
+                if(result[2] == "D"){
+                    switch(genre){
+                        case 'F': {
+                            data = "F, +1, XXX, "+data;
+                            Comedy *ptr = nullptr;
+                            comedyBST->returnMovie(data, ptr);
+                            addTransaction("Returned", custID, ptr);
+                            break;
+                        }
+                        case 'C': { // 3 1971 Ruth Gordon
+                            Classic *ptr = nullptr;
+                            classicBST->manageClassic(data, ptr, 1);
+                            addTransaction("Returned", custID, ptr);
+                            break;
+                        }
+                        case 'D': {
+                            data = "D, +1, "+data+"0000";
+                            Drama *ptr = nullptr;
+                            dramaBST->returnMovie(data, ptr);
+                            addTransaction("Returned", custID, ptr);
+                            break;
+                        }
+                        default: {cout << genre << " is not a valid genre!" << endl; break;}
+                    }
+                }
+                else{
+                    cout << result[2] << " is not a valid media type!" << endl;
+                }
                 break;
             }
             default:
                 break;
         }
     }
-
-
 }
 
-void Store::addTransaction(int custID, Movie *ptr) {
+void Store::addTransaction(string action, int custID, Movie *ptr) {
     if(customerHashTable->find(custID) && ptr){
-        customerHashTable->find(custID)->addHistory("Borrowed " + ptr->getTitle());
-        allTransactions.push_back(to_string(custID) + " Borrowed " + ptr->getTitle());
+        customerHashTable->find(custID)->addHistory(action + " "+ ptr->getTitle());
+        allTransactions.push_back(to_string(custID) + " " +action+ " " + ptr->getTitle());
     }
 
 }

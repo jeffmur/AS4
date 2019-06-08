@@ -6,8 +6,7 @@ set(CMAKE_CXX_STANDARD 14)
 add_executable(AS4
                 src/store.h
                 src/store.cpp
-                src/borrow.h
-                src/bst.hpp
+        src/bst.hpp
                 src/classic.cpp
                 src/classic.h
                 src/comedy.cpp
@@ -19,11 +18,7 @@ add_executable(AS4
                 src/drama.cpp
                 src/hash.h
                 src/hash.cpp
-                src/history.h
-                src/inventory.h
-                src/movie.cpp
+        src/movie.cpp
                 src/movie.h
-                src/return.h
-                src/transaction.h
-                src/nodedata.h
+        src/nodedata.h
                 src/nodedata.cpp)

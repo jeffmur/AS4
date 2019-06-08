@@ -78,6 +78,19 @@ bool Classic::operator>=(const Classic &rhs) const {
     return (*this > rhs) || (*this == rhs);
 }
 
+bool Classic::operator==(const Classic &rhs) const {
+    if(getGenre() == rhs.getGenre()){
+        if(majorActor == rhs.majorActor || getTitle() == rhs.getTitle())
+            return true;
+    }
+    return false;
+}
+
+bool Classic::operator!=(const Classic &rhs) const {
+    return !(*this == rhs);
+}
+
+
 ostream &operator<<(ostream &output, const Classic &m) {
     if(&m != nullptr){
         cout << "Classic"
