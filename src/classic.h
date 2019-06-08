@@ -11,6 +11,7 @@ using namespace std;
 class Classic : public Movie {
     friend ostream & operator<<(ostream &, const Classic &);
 public:
+    Classic();
     virtual ~Classic();
     Classic(const string &);      // data is set equal to parameter
 
@@ -18,6 +19,9 @@ public:
     bool operator>(const Classic &) const;
     bool operator<=(const Classic &) const;
     bool operator>=(const Classic &) const;
+
+    bool operator==(const Classic &) const;
+    bool operator!=(const Classic &) const;
 
     void setReleaseMonth(int releaseMonth);
     int getReleaseMonth() const;

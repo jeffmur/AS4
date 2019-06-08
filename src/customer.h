@@ -6,7 +6,6 @@
 #define CUSTOMER_H
 
 #include "nodedata.h"
-//#include "transaction.h"
 #include <string>
 #include <vector>
 #include <iostream>
@@ -20,7 +19,9 @@ public:
     int ID;
     Customer(string last, string first, int ID);		// constructor from strings to NodeData
     ~Customer();								        // destructor
-    //vector<Transactions*> customerHistory;
+    vector<string> history;
+    void displayHistory();
+    void addHistory(string s);
 
 private:
     NodeData* name;

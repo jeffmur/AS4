@@ -2,12 +2,14 @@
 // Created: 4/16/19
 // Last Modified:
 
-#ifndef BINTREE_H
-#define BINTREE_H
+#ifndef BINTREE_HPP
+#define BINTREE_HPP
 
 #include <string>
 #include <iostream>
 #include <fstream>
+#include <iomanip>
+#include "classic.h"
 
 using namespace std;
 
@@ -32,7 +34,10 @@ public:
     bool isEmpty() const;					// true if tree is empty, otherwise false
     void makeEmpty();						// Make the tree empty so isEmpty returns true
     bool insert(M* iteM);
-    bool retrieve(M &targetData, M* &pointer) const;
+    bool borrowMovie(string data, M* &pointer);
+    bool returnMovie(string data, M* &pointer);
+    bool manageClassic(string data, M* &pointer, int amount);
+    bool retrieve(M* targetData, M* &pointer) const;
     void printInOrder() const;
     void display() const;
 
@@ -43,7 +48,7 @@ private:
         M* data;						    // pointer to data object
         Node* left;							// left subtree pointer
         Node* right;						// right subtree pointer
-        Node* duplicate = NULL;             // points to duplicate movie Node
+        //Node* duplicate = NULL;           // points to duplicate movie Node
                                             // (same title and director - different Major Actor)
     };
     Node* root;								// root of the tree
@@ -59,13 +64,14 @@ private:
 // utility functions
     void deleteRecursive(Node*);
     bool setRecursive(Node *base, M *data) const;
-    bool findRecursive(Node *base, M *target) const;
+    bool findRecursive(Node *base, M *target, M* &ptr) const;
     bool compareRecur(Node *lhs, Node *rhs ) const;
     void inorderHelper(Node *cur) const;
+    string removeSpace(string s);
 
 };
 
-#endif  /* BINTREE_H */
+#endif  /* BINTREE_HPP */
 
 //------------------------- BinTree ---------------------------------
 // Constructor for BinTree
@@ -77,13 +83,13 @@ BinTree<M>::BinTree() {
 //------------------------- ~BinTree ---------------------------------
 // Deconstructor for BinTree
 template <class M>
-BinTree<M>::~BinTree() {
+BinTree<M>::~BinTree<M>() {
     // delete all data in tree
     makeEmpty();
     // delete root
     delete root;
     // set to NULL
-    root = nullptr;
+    root = NULL;
 }
 //------------------------- ~Node ---------------------------------
 // Deconstructor for Node - deletes all data and pointers
@@ -115,7 +121,6 @@ template <class M>
 void BinTree<M>::deleteRecursive(Node *current) {
     if(current == NULL)
         return;
-
     // if left isn't empty set to NULL
     // recurse until hit child
     if(current->left != NULL)
@@ -127,8 +132,8 @@ void BinTree<M>::deleteRecursive(Node *current) {
         deleteRecursive(current->right);
 
     // set both children to NULL
-    current->left = NULL;
-    current->right = NULL;
+    current->left = nullptr;
+    current->right = nullptr;
 
     delete current->data;
     current->data = NULL;
@@ -141,7 +146,7 @@ void BinTree<M>::deleteRecursive(Node *current) {
 // end of makeEmpty
 
 //------------------------- compareRecur ---------------------------------
-// Returns true if no execption is found, otherise, return false;
+// Returns true if no exception is found, otherwise, return false;
 // Note: Will return false if both trees are empty.
 template <class M>
 bool BinTree<M>::compareRecur( Node* lhs, Node* rhs ) const{
@@ -219,20 +224,60 @@ bool BinTree<M>::setRecursive(Node *base, M *toAdd) const{
 }
 // end of insert
 
+template <class M>
+bool BinTree<M>::returnMovie(string data, M *&pointer) {
+    M *MovieData = new M(data);
+    if(retrieve(MovieData, pointer))
+        if(pointer->quantity > 0)
+            pointer->quantity = pointer->quantity+1;
+    delete MovieData;
+}
+
+template <class M>
+bool BinTree<M>::borrowMovie(string data, M *&pointer) {
+    M *MovieData = new M(data);
+    if(retrieve(MovieData, pointer))
+        if(pointer->quantity > 0)
+            pointer->quantity = pointer->quantity-1;
+    delete MovieData;
+}
+
+
+template <class M>
+bool BinTree<M>::manageClassic(string data, M *&pointer, int amount){
+    // flip data
+    string actor = removeSpace(data.substr(7, data.length()));
+    int month = stoi(data.substr(0, 2));
+    int year = stoi(data.substr(2,4));
+    // assign data to flipped
+    Classic *MovieData = new Classic();
+    MovieData->setGenre('C');
+    MovieData->setMajorActor(actor);
+    MovieData->setReleaseYear(year);
+    MovieData->setReleaseMonth(month);
+
+    if(retrieve(MovieData, pointer))
+        if(pointer->quantity > 0)
+            pointer->quantity = pointer->quantity+amount;
+        else {
+            cout << pointer->getTitle() << " there are no more copies available?" << endl;
+        }
+
+    delete MovieData;
+}
+
 //------------------------- retrieve ---------------------------------
 // Returns true if targetData is found, otherwise return false.
 // Postconditions: pointer is assigned to the memory address of the M if found
 // otherwise, nullptr
 // Modified operator<< in M.cpp to take in nullptr -> "NULL"
 template <class M>
-bool BinTree<M>::retrieve(M &targetData, M* &pointer) const{
+bool BinTree<M>::retrieve(M* targetData, M* &pointer) const{
+
+    if(findRecursive(root, targetData, pointer))
+        return true;
 
     pointer = nullptr;
-
-    if(findRecursive(root, &targetData)){
-        pointer = &targetData;
-        return true;
-    }
     return false;
 
 }
@@ -241,19 +286,21 @@ bool BinTree<M>::retrieve(M &targetData, M* &pointer) const{
 // otherwise, return false.
 // Postconditions: BinTree is unchanged
 template <class M>
-bool BinTree<M>::findRecursive(Node *current, M *target) const{
+bool BinTree<M>::findRecursive(Node *current, M *target, M* &ptr) const{
     // rainy day
     if(current == nullptr)
         return false;
     // base case
-    if(*target == *current->data)
+    if(*target == *current->data){
+        ptr = current->data;
         return true;
+    }
         // greater than (right subtree)
     else if(*target > *current->data)
-        findRecursive(current->right, target);
+        findRecursive(current->right, target, ptr);
     else
         // less than (left subtree)
-        findRecursive(current->left, target);
+        findRecursive(current->left, target, ptr);
 }
 // end of retrieve
 template <class M>
@@ -262,7 +309,7 @@ void BinTree<M>::display() const{
         char genre = this->root->data->getGenre();
         // Comedy == 'F'
         if(genre == 'F'){
-            cout << " Genre"
+            cout << "Genre "
                  << setw(12) << "Quantity"
                  << setw(20) << "Title"
                  << setw(29) << "Year\n";
@@ -270,11 +317,11 @@ void BinTree<M>::display() const{
         }
             // Drama == 'D'
         else if(genre == 'D'){
-            cout << " Genre"
+            cout << "Genre "
                  << setw(12) << "Quantity"
                  << setw(20) << "Title"
-                 << setw(38) << "Director"
-                 << setw(13) << "Year\n";
+                 << setw(36) << "Director"
+                 << setw(15) << "Year\n";
             cout << *this << endl;
         }
             // Classic == 'C'
@@ -282,8 +329,8 @@ void BinTree<M>::display() const{
             cout << " Genre"
                  << setw(12) << "Quantity"
                  << setw(20) << "Title"
-                 << setw(38) << "Major Actor"
-                 << setw(13) << "Year\n";
+                 << setw(36) << "Major Actor"
+                 << setw(15) << "Year\n";
             cout << *this << endl;
         }
     }
@@ -316,6 +363,18 @@ void BinTree<M>::inorderHelper(BinTree::Node *current) const {
 }
 // end of printInOrder
 
+template <class M>
+string BinTree<M>::removeSpace(string old){
+    string result;
+    int l = old.length();
+    if(old[0] == *" "){
+        result = old.substr(1, l);
+    }
+    if(old[l-1] == *" "){
+        result = old.substr(0, l-1);
+    }
+    return result;
+}
 
 
 
