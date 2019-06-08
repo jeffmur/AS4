@@ -84,12 +84,6 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/jeffmur/UWB/343/AS4/TESTING.cpp">
-			<Option target="AS4"/>
-		</Unit>
-		<Unit filename="/home/jeffmur/UWB/343/AS4/src/borrow.h">
-			<Option target="AS4"/>
-		</Unit>
 		<Unit filename="/home/jeffmur/UWB/343/AS4/src/bst.hpp">
 			<Option target="AS4"/>
 		</Unit>
@@ -123,12 +117,6 @@
 		<Unit filename="/home/jeffmur/UWB/343/AS4/src/hash.h">
 			<Option target="AS4"/>
 		</Unit>
-		<Unit filename="/home/jeffmur/UWB/343/AS4/src/history.h">
-			<Option target="AS4"/>
-		</Unit>
-		<Unit filename="/home/jeffmur/UWB/343/AS4/src/inventory.h">
-			<Option target="AS4"/>
-		</Unit>
 		<Unit filename="/home/jeffmur/UWB/343/AS4/src/movie.cpp">
 			<Option target="AS4"/>
 		</Unit>
@@ -141,10 +129,10 @@
 		<Unit filename="/home/jeffmur/UWB/343/AS4/src/nodedata.h">
 			<Option target="AS4"/>
 		</Unit>
-		<Unit filename="/home/jeffmur/UWB/343/AS4/src/return.h">
+		<Unit filename="/home/jeffmur/UWB/343/AS4/src/store.cpp">
 			<Option target="AS4"/>
 		</Unit>
-		<Unit filename="/home/jeffmur/UWB/343/AS4/src/transaction.h">
+		<Unit filename="/home/jeffmur/UWB/343/AS4/src/store.h">
 			<Option target="AS4"/>
 		</Unit>
 		<Unit filename="/home/jeffmur/UWB/343/AS4/CMakeLists.txt">

@@ -34,10 +34,10 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /home/jeffmur/IDES/clion/bin/cmake/linux/bin/cmake
+CMAKE_COMMAND = /snap/clion/73/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /home/jeffmur/IDES/clion/bin/cmake/linux/bin/cmake -E remove -f
+RM = /snap/clion/73/bin/cmake/linux/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -57,18 +57,18 @@ include CMakeFiles/AS4.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/AS4.dir/flags.make
 
-CMakeFiles/AS4.dir/TESTING.cpp.o: CMakeFiles/AS4.dir/flags.make
-CMakeFiles/AS4.dir/TESTING.cpp.o: ../TESTING.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jeffmur/UWB/343/AS4/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/AS4.dir/TESTING.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/AS4.dir/TESTING.cpp.o -c /home/jeffmur/UWB/343/AS4/TESTING.cpp
+CMakeFiles/AS4.dir/src/store.cpp.o: CMakeFiles/AS4.dir/flags.make
+CMakeFiles/AS4.dir/src/store.cpp.o: ../src/store.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jeffmur/UWB/343/AS4/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/AS4.dir/src/store.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/AS4.dir/src/store.cpp.o -c /home/jeffmur/UWB/343/AS4/src/store.cpp
 
-CMakeFiles/AS4.dir/TESTING.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/AS4.dir/TESTING.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jeffmur/UWB/343/AS4/TESTING.cpp > CMakeFiles/AS4.dir/TESTING.cpp.i
+CMakeFiles/AS4.dir/src/store.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/AS4.dir/src/store.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jeffmur/UWB/343/AS4/src/store.cpp > CMakeFiles/AS4.dir/src/store.cpp.i
 
-CMakeFiles/AS4.dir/TESTING.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AS4.dir/TESTING.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jeffmur/UWB/343/AS4/TESTING.cpp -o CMakeFiles/AS4.dir/TESTING.cpp.s
+CMakeFiles/AS4.dir/src/store.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AS4.dir/src/store.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jeffmur/UWB/343/AS4/src/store.cpp -o CMakeFiles/AS4.dir/src/store.cpp.s
 
 CMakeFiles/AS4.dir/src/classic.cpp.o: CMakeFiles/AS4.dir/flags.make
 CMakeFiles/AS4.dir/src/classic.cpp.o: ../src/classic.cpp
@@ -163,7 +163,7 @@ CMakeFiles/AS4.dir/src/nodedata.cpp.s: cmake_force
 
 # Object files for target AS4
 AS4_OBJECTS = \
-"CMakeFiles/AS4.dir/TESTING.cpp.o" \
+"CMakeFiles/AS4.dir/src/store.cpp.o" \
 "CMakeFiles/AS4.dir/src/classic.cpp.o" \
 "CMakeFiles/AS4.dir/src/comedy.cpp.o" \
 "CMakeFiles/AS4.dir/src/customer.cpp.o" \
@@ -175,7 +175,7 @@ AS4_OBJECTS = \
 # External object files for target AS4
 AS4_EXTERNAL_OBJECTS =
 
-AS4: CMakeFiles/AS4.dir/TESTING.cpp.o
+AS4: CMakeFiles/AS4.dir/src/store.cpp.o
 AS4: CMakeFiles/AS4.dir/src/classic.cpp.o
 AS4: CMakeFiles/AS4.dir/src/comedy.cpp.o
 AS4: CMakeFiles/AS4.dir/src/customer.cpp.o

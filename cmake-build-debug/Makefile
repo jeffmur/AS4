@@ -39,10 +39,10 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /home/jeffmur/IDES/clion/bin/cmake/linux/bin/cmake
+CMAKE_COMMAND = /snap/clion/73/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /home/jeffmur/IDES/clion/bin/cmake/linux/bin/cmake -E remove -f
+RM = /snap/clion/73/bin/cmake/linux/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -59,7 +59,7 @@ CMAKE_BINARY_DIR = /home/jeffmur/UWB/343/AS4/cmake-build-debug
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/home/jeffmur/IDES/clion/bin/cmake/linux/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/snap/clion/73/bin/cmake/linux/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -70,7 +70,7 @@ rebuild_cache/fast: rebuild_cache
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/home/jeffmur/IDES/clion/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	/snap/clion/73/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -122,33 +122,6 @@ AS4: cmake_check_build_system
 AS4/fast:
 	$(MAKE) -f CMakeFiles/AS4.dir/build.make CMakeFiles/AS4.dir/build
 .PHONY : AS4/fast
-
-TESTING.o: TESTING.cpp.o
-
-.PHONY : TESTING.o
-
-# target to build an object file
-TESTING.cpp.o:
-	$(MAKE) -f CMakeFiles/AS4.dir/build.make CMakeFiles/AS4.dir/TESTING.cpp.o
-.PHONY : TESTING.cpp.o
-
-TESTING.i: TESTING.cpp.i
-
-.PHONY : TESTING.i
-
-# target to preprocess a source file
-TESTING.cpp.i:
-	$(MAKE) -f CMakeFiles/AS4.dir/build.make CMakeFiles/AS4.dir/TESTING.cpp.i
-.PHONY : TESTING.cpp.i
-
-TESTING.s: TESTING.cpp.s
-
-.PHONY : TESTING.s
-
-# target to generate assembly for a file
-TESTING.cpp.s:
-	$(MAKE) -f CMakeFiles/AS4.dir/build.make CMakeFiles/AS4.dir/TESTING.cpp.s
-.PHONY : TESTING.cpp.s
 
 src/classic.o: src/classic.cpp.o
 
@@ -339,6 +312,33 @@ src/nodedata.cpp.s:
 	$(MAKE) -f CMakeFiles/AS4.dir/build.make CMakeFiles/AS4.dir/src/nodedata.cpp.s
 .PHONY : src/nodedata.cpp.s
 
+src/store.o: src/store.cpp.o
+
+.PHONY : src/store.o
+
+# target to build an object file
+src/store.cpp.o:
+	$(MAKE) -f CMakeFiles/AS4.dir/build.make CMakeFiles/AS4.dir/src/store.cpp.o
+.PHONY : src/store.cpp.o
+
+src/store.i: src/store.cpp.i
+
+.PHONY : src/store.i
+
+# target to preprocess a source file
+src/store.cpp.i:
+	$(MAKE) -f CMakeFiles/AS4.dir/build.make CMakeFiles/AS4.dir/src/store.cpp.i
+.PHONY : src/store.cpp.i
+
+src/store.s: src/store.cpp.s
+
+.PHONY : src/store.s
+
+# target to generate assembly for a file
+src/store.cpp.s:
+	$(MAKE) -f CMakeFiles/AS4.dir/build.make CMakeFiles/AS4.dir/src/store.cpp.s
+.PHONY : src/store.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -348,9 +348,6 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... AS4"
 	@echo "... edit_cache"
-	@echo "... TESTING.o"
-	@echo "... TESTING.i"
-	@echo "... TESTING.s"
 	@echo "... src/classic.o"
 	@echo "... src/classic.i"
 	@echo "... src/classic.s"
@@ -372,6 +369,9 @@ help:
 	@echo "... src/nodedata.o"
 	@echo "... src/nodedata.i"
 	@echo "... src/nodedata.s"
+	@echo "... src/store.o"
+	@echo "... src/store.i"
+	@echo "... src/store.s"
 .PHONY : help
 
 
