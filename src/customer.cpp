@@ -25,7 +25,7 @@ void Customer::addHistory(const string s){
 
 void Customer::displayHistory(){
     int length = history.size();
-    cout << "----" << ID << "-----" << endl;
+    cout << "---- " << ID << " - " << *name << " -----" << endl;
     if(length != 0){
         for(int i = 0; i < length; i++){
             cout << history[i] << endl;

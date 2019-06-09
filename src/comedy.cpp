@@ -62,7 +62,8 @@ ostream &operator<<(ostream &output, const Comedy &m) {
         cout << "Comedy"
              << setw(9) << m.getQuantity() << " "
              << setw(35) << m.getTitle()
-             << setw(15) << m.getReleaseYear();
+             << setw(25) << m.getDirector()
+             << setw(12) << m.getReleaseYear();
     }
     else
         output << "NULL";
