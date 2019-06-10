@@ -4,6 +4,10 @@
 #include <sstream>
 #include <iomanip>
 
+// ------------------------------------operator<<-----------------------------
+// Description: Operator overload for <<
+// Precondition: None
+// Postcondition: None
 ostream &operator<<(ostream &output, const Movie &m) {
     if(&m != nullptr){
         cout << m.getGenre() << ", " << m.getQuantity() << ", " <<
@@ -13,14 +17,23 @@ ostream &operator<<(ostream &output, const Movie &m) {
         output << "NULL";
     return output;
 }
+
+//Constructor
 Comedy::Comedy(){ }
+
+//Destructor
 Comedy::~Comedy() { }
 
+//Constructor, accepts a string
 Comedy::Comedy(const string &s) : Movie(){
     setData(s);
 }
 
 //   comedy movie (‘F’) sorted by Title, then Year it released
+// ------------------------------------operator<-----------------------------
+// Description: Operator overload for <
+// Precondition: None
+// Postcondition: None
 bool Comedy::operator<(const Movie &rhs) const {
     // compare by Title
     if(getTitle() < rhs.getTitle())
@@ -35,6 +48,10 @@ bool Comedy::operator<(const Movie &rhs) const {
     return false;
 }
 
+// ------------------------------------operator>-----------------------------
+// Description: Operator overload for >
+// Precondition: None
+// Postcondition: None
 bool Comedy::operator>(const Movie &rhs) const {
     // compare by Title
     if(getTitle() > rhs.getTitle())
@@ -49,14 +66,26 @@ bool Comedy::operator>(const Movie &rhs) const {
     return false;
 }
 
+// ------------------------------------operator<=-----------------------------
+// Description: Operator overload for <=
+// Precondition: None
+// Postcondition: None
 bool Comedy::operator<=(const Comedy &rhs) const {
     return (*this < rhs) || (*this == rhs);
 }
 
+// ------------------------------------operator>=-----------------------------
+// Description: Operator overload for >=
+// Precondition: None
+// Postcondition: None
 bool Comedy::operator>=(const Comedy &rhs) const {
     return (*this > rhs) || (*this == rhs);
 }
 
+// ------------------------------------operator<<-----------------------------
+// Description: Operator overload for <<
+// Precondition: None
+// Postcondition: None
 ostream &operator<<(ostream &output, const Comedy &m) {
     if(&m != nullptr){
         cout << "Comedy"
