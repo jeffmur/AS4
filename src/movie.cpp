@@ -58,6 +58,10 @@ bool Movie::operator!=(const Movie& rhs) const {
     return !(*this == rhs);
 }
 
+// ------------------------------------removeSpace-----------------------------
+// Description: Removes all spaces in the given string
+// Precondition: None
+// Postcondition: None
 string Movie::removeSpace(string old){
     string result;
     int l = old.length();

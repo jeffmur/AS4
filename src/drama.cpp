@@ -3,13 +3,19 @@
 #include <sstream>
 #include <iomanip>
 
+//Destructor
 Drama::~Drama() { }
 
+//Constructor, accepts a string
 Drama::Drama(const string &s) : Movie(){
     setData(s);
 }
 
 //   dramas (‘D’) are sorted by Director, then Title
+// ------------------------------------operator<-----------------------------
+// Description: Operator overload for <
+// Precondition: None
+// Postcondition: None
 bool Drama::operator<(const Movie &rhs) const {
     // compare by Title
     if(getDirector() < rhs.getDirector())
@@ -24,6 +30,10 @@ bool Drama::operator<(const Movie &rhs) const {
     return false;
 }
 
+// ------------------------------------operator>-----------------------------
+// Description: Operator overload for >
+// Precondition: None
+// Postcondition: None
 bool Drama::operator>(const Movie &rhs) const {
     // compare by Title
     if(getDirector() > rhs.getDirector())
@@ -38,14 +48,26 @@ bool Drama::operator>(const Movie &rhs) const {
     return false;
 }
 
+// ------------------------------------operator<=-----------------------------
+// Description: Operator overload for <=
+// Precondition: None
+// Postcondition: None
 bool Drama::operator<=(const Drama &rhs) const {
     return (*this < rhs) || (*this == rhs);
 }
 
+// ------------------------------------operator>=-----------------------------
+// Description: Operator overload for ==
+// Precondition: None
+// Postcondition: None
 bool Drama::operator>=(const Drama &rhs) const {
     return (*this > rhs) || (*this == rhs);
 }
 
+// ------------------------------------operator<<-----------------------------
+// Description: Operator overload for <<
+// Precondition: None
+// Postcondition: None
 ostream &operator<<(ostream &output, const Drama &m) {
     if(&m != nullptr){
         cout << "Drama"

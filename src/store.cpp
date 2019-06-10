@@ -5,7 +5,7 @@
 
 using namespace std;
 
-
+//Constructor
 Store::Store()
 {
     comedyBST = new BinTree<Comedy>();
@@ -15,6 +15,7 @@ Store::Store()
     //allTransactions = new vector<Transaction>();
 }
 
+//Destructor
 Store::~Store()
 {
     // mem garbage collection
@@ -29,6 +30,11 @@ Store::~Store()
 // Classic: Month Year Major Actor
 // Drama: Director, Title,
 
+
+// ------------------------------------combineV-----------------------------
+// Description: Combines parts of a string vector into a single string
+// Precondition: None
+// Postcondition: None
 string Store::combineV(vector<string> v){
     string result;
     for(int i = 4; i < v.size(); i++){
@@ -37,7 +43,10 @@ string Store::combineV(vector<string> v){
     return result;
 }
 
-
+// ------------------------------------buildMovies-----------------------------
+// Description: Creates the movie database based on the contents of infile
+// Precondition: None
+// Postcondition: BSTs for each of the movie types exist
 void Store::buildMovies(ifstream& infile) {
     if (!infile) {
         cout << "File could not be opened." << endl;
@@ -72,6 +81,10 @@ void Store::buildMovies(ifstream& infile) {
 
 }
 
+// ------------------------------------buildCustomers-----------------------------
+// Description: Creates a customer database based on the contents of infile
+// Precondition: None
+// Postcondition: customerHashTable exists and is filled with customers
 void Store::buildCustomers(ifstream& infile){
     if (!infile) {
         cout << "File could not be opened." << endl;
@@ -102,6 +115,10 @@ void Store::buildCustomers(ifstream& infile){
     //customerHashTable->display();
 }
 
+// ------------------------------------processCommands-----------------------------
+// Description: Processes and executes each of the transactions in infile
+// Precondition: Customer and movie databases have been constructed
+// Postcondition: None
 void Store::processCommands(ifstream &infile)
 {
     if (!infile) {
@@ -225,6 +242,10 @@ void Store::processCommands(ifstream &infile)
     }
 }
 
+// ------------------------------------addTransaction-----------------------------
+// Description: Adds a transaction to a customer's transaction history
+// Precondition: None
+// Postcondition: None
 void Store::addTransaction(string action, int custID, Movie *ptr) {
     if(customerHashTable->find(custID) && ptr){
         customerHashTable->find(custID)->addHistory(action + " "+ ptr->getTitle());
@@ -233,6 +254,10 @@ void Store::addTransaction(string action, int custID, Movie *ptr) {
 
 }
 
+// ------------------------------------displayAll-----------------------------
+// Description: Displays the inventory of movies
+// Precondition: None
+// Postcondition: None
 void Store::displayAll() const
 {
     classicBST->display();
@@ -240,6 +265,7 @@ void Store::displayAll() const
     dramaBST->display();
 }
 
+//main method
 int main() {
     //ifstream infileC("/home/jeffmur/UWB/343/AS4/data/data4customers.txt");
     Store *store = new Store();

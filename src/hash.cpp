@@ -1,11 +1,12 @@
 #include "hash.h"
 
-// for resizing or initial setup of Hash Table
+//Constructor, accepts an initial size
 Hash::Hash(int size){
     SIZE = size;
     table.resize(size);
 }
 
+//Destructor
 Hash::~Hash(){
     for(int i = 0; i < SIZE; i++){
         Node* cur = table[i];
@@ -19,10 +20,18 @@ Hash::~Hash(){
     table.clear();
 }
 
+// ------------------------------------hashFunction-----------------------------
+// Description: A simple hash function, hashes the given id into an index
+// Precondition: None
+// Postcondition: None
 int Hash::hashFunction(int id) {
     return id % SIZE;
 }
 
+// ------------------------------------insert-----------------------------
+// Description: Inserts the given customer into the hash table
+// Precondition: None
+// Postcondition: Customer is in the hash table
 void Hash::insert(Customer &customer) {
     int index = hashFunction(customer.ID);
     //cout << customer << " " << index << endl;
@@ -39,6 +48,12 @@ void Hash::insert(Customer &customer) {
     table[index] = toAdd;
 }
 
+// ------------------------------------find-----------------------------
+// Description: Searches the hash table for a customer with the given
+// customer id, then returns a pointer to it. Returns nullptr if not
+// found
+// Precondition: None
+// Postcondition: None
 Customer* Hash::find(int custID) {
     int index = hashFunction(custID);
     Node* cur = table[index];
@@ -51,7 +66,11 @@ Customer* Hash::find(int custID) {
     return nullptr;
 }
 
-// delete and NULL target Node based on customer ID
+// ------------------------------------remove-----------------------------
+// Description: Searches the hash table for a customer with the given
+// customer id, then deletes the customer
+// Precondition: None
+// Postcondition: Customer with the given id is no longer in the hash table
 bool Hash::remove(int custID) {
 
     // if custID exits
@@ -90,7 +109,10 @@ bool Hash::remove(int custID) {
     return false;
 }
 
-// print each values in vector and linked list if applicable
+// ------------------------------------display-----------------------------
+// Description: Prints out the contents of the hash table
+// Precondition: None
+// Postcondition: None
 void Hash::display(){
     printf("\nIndex: \t\t Links: \n");
     for(int i = 0; i < SIZE; i++){
