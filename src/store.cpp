@@ -70,15 +70,6 @@ void Store::buildMovies(ifstream& infile) {
     }
     cout << endl;
 
-    /*
-    comedyBST->display();
-    classicBST->display();
-    dramaBST->display();
-     */
-
-    // ADD TRANSACTIONS HERE?
-
-
 }
 
 void Store::buildCustomers(ifstream& infile){
@@ -148,7 +139,9 @@ void Store::processCommands(ifstream &infile)
 
         switch(commandType) {
             case 'I': {
-                cout << endl;
+                cout << endl << "------------------------------------"
+                                "Current Inventory"
+                                "------------------------------------" << endl;
                 displayAll();
                 break;
             }
@@ -242,8 +235,8 @@ void Store::addTransaction(string action, int custID, Movie *ptr) {
 
 void Store::displayAll() const
 {
-    comedyBST->display();
     classicBST->display();
+    comedyBST->display();
     dramaBST->display();
 }
 

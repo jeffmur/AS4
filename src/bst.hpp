@@ -260,7 +260,7 @@ bool BinTree<M>::manageClassic(string data, M *&pointer, int amount){
         if(pointer->quantity > 0)
             pointer->quantity = pointer->quantity+amount;
         else {
-            cout << pointer->getTitle() << " there are no more copies available?" << endl;
+            cout << pointer->getTitle() << " there are no more copies available at this time!" << endl;
         }
 
     delete MovieData;
@@ -312,7 +312,8 @@ void BinTree<M>::display() const{
             cout << "Genre "
                  << setw(12) << "Quantity"
                  << setw(20) << "Title"
-                 << setw(29) << "Year\n";
+                 << setw(37) << "Director"
+                 << setw(14) << "Year\n";
             cout << *this << endl;
         }
             // Drama == 'D'
