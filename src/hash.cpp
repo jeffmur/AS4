@@ -63,6 +63,7 @@ Customer* Hash::find(int custID) {
             return cur->data;
         cur = cur->next;
     }
+    cout << "ERROR: Not a valid customer ID! : " << custID << endl;
     return nullptr;
 }
 

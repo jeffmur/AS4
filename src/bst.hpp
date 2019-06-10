@@ -34,9 +34,9 @@ public:
     bool isEmpty() const;					// true if tree is empty, otherwise false
     void makeEmpty();						// Make the tree empty so isEmpty returns true
     bool insert(M* iteM);
-    bool borrowMovie(string data, M* &pointer);
-    bool returnMovie(string data, M* &pointer);
-    bool manageClassic(string data, M* &pointer, int amount);
+
+    void manageMovie(int custID, string data, M* &pointer, int amount);
+    void manageClassic(int custID, string data, M* &pointer, int amount);
     bool retrieve(M* targetData, M* &pointer) const;
     void printInOrder() const;
     void display() const;
@@ -194,11 +194,6 @@ bool BinTree<M>::setRecursive(Node *base, M *toAdd) const{
         base = setData(toAdd);
         return true;
     }
-    //// recursive case - duplicate data
-//    if(*toAdd == *base->data){
-//        bool found = true;
-//        Node *dup = *base;
-//    }
 
     // recursive case - right
     if(*toAdd > *base->data){
@@ -225,26 +220,19 @@ bool BinTree<M>::setRecursive(Node *base, M *toAdd) const{
 // end of insert
 
 template <class M>
-bool BinTree<M>::returnMovie(string data, M *&pointer) {
+void BinTree<M>::manageMovie(int custID, string data, M *&pointer, int amount){
     M *MovieData = new M(data);
     if(retrieve(MovieData, pointer))
         if(pointer->quantity > 0)
-            pointer->quantity = pointer->quantity+1;
-    delete MovieData;
-}
-
-template <class M>
-bool BinTree<M>::borrowMovie(string data, M *&pointer) {
-    M *MovieData = new M(data);
-    if(retrieve(MovieData, pointer))
-        if(pointer->quantity > 0)
-            pointer->quantity = pointer->quantity-1;
+            pointer->quantity = pointer->quantity+amount;
+        else
+            cout << "OUT OF STOCK: " << custID << " cannot borrow " << pointer->getTitle() << endl;
     delete MovieData;
 }
 
 
 template <class M>
-bool BinTree<M>::manageClassic(string data, M *&pointer, int amount){
+void BinTree<M>::manageClassic(int custID, string data, M *&pointer, int amount){
     // flip data
     string actor = removeSpace(data.substr(7, data.length()));
     int month = stoi(data.substr(0, 2));
@@ -260,7 +248,7 @@ bool BinTree<M>::manageClassic(string data, M *&pointer, int amount){
         if(pointer->quantity > 0)
             pointer->quantity = pointer->quantity+amount;
         else {
-            cout << pointer->getTitle() << " there are no more copies available at this time!" << endl;
+            cout << "OUT OF STOCK: " << custID << " cannot borrow " << pointer->getTitle() << endl;
         }
 
     delete MovieData;
@@ -278,6 +266,7 @@ bool BinTree<M>::retrieve(M* targetData, M* &pointer) const{
         return true;
 
     pointer = nullptr;
+    cout << "ERROR: Could not locate that movie!" << endl;
     return false;
 
 }
@@ -303,6 +292,8 @@ bool BinTree<M>::findRecursive(Node *current, M *target, M* &ptr) const{
         findRecursive(current->left, target, ptr);
 }
 // end of retrieve
+
+
 template <class M>
 void BinTree<M>::display() const{
     if(!isEmpty()){

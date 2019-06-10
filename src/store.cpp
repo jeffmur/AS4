@@ -12,7 +12,6 @@ Store::Store()
     classicBST = new BinTree<Classic>();
     dramaBST = new BinTree<Drama>();
     customerHashTable = new Hash(10);
-    //allTransactions = new vector<Transaction>();
 }
 
 //Destructor
@@ -23,7 +22,6 @@ Store::~Store()
     delete comedyBST;
     delete classicBST;
     delete customerHashTable;
-    //delete allTransactions;
 }
 
 // Comedies: Title,
@@ -104,15 +102,6 @@ void Store::buildCustomers(ifstream& infile){
             customerHashTable->insert(*c);
         }
     }
-    //customerHashTable->display();
-
-    bool found = customerHashTable->find(4444);
-    //cout << "Found 4444? " << ( found ? "True" : "False") << endl;
-
-    bool deleted = customerHashTable->remove(2000);
-    //cout << "Deleted 2000? " << ( deleted ? "True" : "False") << endl;
-
-    //customerHashTable->display();
 }
 
 // ------------------------------------processCommands-----------------------------
@@ -176,28 +165,28 @@ void Store::processCommands(ifstream &infile)
                         case 'F': {
                             data = "F, -1, XXX, "+data;
                             Comedy *ptr = nullptr;
-                            comedyBST->borrowMovie(data, ptr);
+                            comedyBST->manageMovie(custID, data, ptr, -1);
                             addTransaction("Borrowed", custID, ptr);
                             break;
                         }
                         case 'C': { // 3 1971 Ruth Gordon
                             Classic *ptr = nullptr;
-                            classicBST->manageClassic(data, ptr, -1);
+                            classicBST->manageClassic(custID, data, ptr, -1);
                             addTransaction("Borrowed", custID, ptr);
                             break;
                         }
                         case 'D': {
                             data = "D, -1, "+data+"0000";
                             Drama *ptr = nullptr;
-                            dramaBST->borrowMovie(data, ptr);
+                            dramaBST->manageMovie(custID, data, ptr, -1);
                             addTransaction("Borrowed", custID, ptr);
                             break;
                         }
-                        default: {cout << genre << " is not a valid genre!" << endl; break;}
+                        default: {cout << "ERROR: " << genre << " is not a valid genre!" << endl; break;}
                     }
                 }
                 else{
-                    cout << result[2] << " is not a valid media type!" << endl;
+                    cout << "ERROR: " << result[2] << " is not a valid media type!" << endl;
                 }
                 break;
             }
@@ -211,28 +200,28 @@ void Store::processCommands(ifstream &infile)
                         case 'F': {
                             data = "F, +1, XXX, "+data;
                             Comedy *ptr = nullptr;
-                            comedyBST->returnMovie(data, ptr);
+                            comedyBST->manageMovie(custID, data, ptr, 1);
                             addTransaction("Returned", custID, ptr);
                             break;
                         }
                         case 'C': { // 3 1971 Ruth Gordon
                             Classic *ptr = nullptr;
-                            classicBST->manageClassic(data, ptr, 1);
+                            classicBST->manageClassic(custID, data, ptr, 1);
                             addTransaction("Returned", custID, ptr);
                             break;
                         }
                         case 'D': {
                             data = "D, +1, "+data+"0000";
                             Drama *ptr = nullptr;
-                            dramaBST->returnMovie(data, ptr);
+                            dramaBST->manageMovie(custID, data, ptr, 1);
                             addTransaction("Returned", custID, ptr);
                             break;
                         }
-                        default: {cout << genre << " is not a valid genre!" << endl; break;}
+                        default: {cout << "ERROR: " << genre << " is not a valid genre!" << endl; break;}
                     }
                 }
                 else{
-                    cout << result[2] << " is not a valid media type!" << endl;
+                    cout << "ERROR: " << result[2] << " is not a valid media type!" << endl;
                 }
                 break;
             }
