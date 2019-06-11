@@ -1,13 +1,23 @@
+// ------------------------------------------------ movie.h -------------------------------------------------------
+// Jeffrey Murray CSS 343 B
+// Creation: 5/29/19
+// Modified: 6/2/19
+// -----------------------------------------------------------------------------------------------------------------
+// Purpose - Parent Class (interface)
+// -----------------------------------------------------------------------------------------------------------------
+// Notes:
+//       - Contains Genre, Director, Title, Year
+//       - Parent class of Comedy, Drama, and Classic
+//
+// Input: data4movies.txt
+// -----------------------------------------------------------------------------------------------------------------
+
 #ifndef MOVIE_H
 #define MOVIE_H
 #include <string>
 #include <iostream>
 #include <fstream>
 using namespace std;
-
-//   comedy movie (‘F’) sorted by Title, then Year it released
-//   dramas (‘D’) are sorted by Director, then Title
-//   classics (‘C’) are sorted by Release date, then Major actor
 
 class Movie {
 public:
@@ -41,4 +51,4 @@ private:
     int releaseYear;
 };
 
-#endif
+#endif /* MOVIES_H */

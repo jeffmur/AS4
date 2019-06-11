@@ -1,6 +1,17 @@
-// Jeffrey Murray CSS 343 B SP19
-// Created: 5/25/19
-// Last Modified:
+// ---------------------------------------------- customer.h -------------------------------------------------------
+// Jeffrey Murray CSS 343 B
+// Creation: 5/25/19
+// Modified: 5/29/19
+// -----------------------------------------------------------------------------------------------------------------
+// Purpose - Customer Data has full name and history
+// -----------------------------------------------------------------------------------------------------------------
+// Notes:
+//       - First Name
+//       - Last Name
+//       - History of Transactions
+//
+// Input: data4customers.txt
+// -----------------------------------------------------------------------------------------------------------------
 
 #ifndef CUSTOMER_H
 #define CUSTOMER_H
@@ -19,9 +30,9 @@ public:
     int ID;
     Customer(string last, string first, int ID);		// constructor from strings to NodeData
     ~Customer();								        // destructor
-    vector<string> history;
-    void displayHistory();
-    void addHistory(string s);
+    vector<string> history;                             // history contains strings of transactions
+    void displayHistory();                              // formatted print
+    void addHistory(string s);                          // add return or borrow movie title
 
 private:
     NodeData* name;

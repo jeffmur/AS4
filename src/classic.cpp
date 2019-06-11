@@ -4,13 +4,13 @@
 #include <string>
 #include <iomanip>
 
-//Constructor
+// Constructor
 Classic::Classic() { }
 
-//Destructor
+// Destructor
 Classic::~Classic() { }
 
-//Constructor, accepts a string
+// Constructor, accepts a constant string
 Classic::Classic(const string &s) : Movie() {
     string token;
     // parse entire string s
@@ -43,23 +43,22 @@ Classic::Classic(const string &s) : Movie() {
     setReleaseYear(stoi(end[4]));
 }
 
-//Setter for releaseMonth
+// Setter for releaseMonth
 void Classic::setReleaseMonth(int releaseMonth) { Classic::releaseMonth = releaseMonth; }
 
-//Getter for releaseMonth
+// Getter for releaseMonth
 int Classic::getReleaseMonth() const { return releaseMonth; }
 
-//Getter for majorActor
+// Getter for majorActor
 const string &Classic::getMajorActor() const { return majorActor; }
 
-//Setter for majorActor
+// Setter for majorActor
 void Classic::setMajorActor(const string &majorActor) { Classic::majorActor = majorActor; }
 
-//   classics (‘C’) are sorted by Release date, then Major actor
-// ------------------------------------operator<-----------------------------
-// Description: Operator overload for <
-// Precondition: None
-// Postcondition: None
+
+// ------------------------operator<-----------------------------
+// Description: Compares release year first, then release month,
+//              Finally major actor
 bool Classic::operator<(const Classic &rhs) const {
 
     // compare by Release Date
@@ -77,34 +76,24 @@ bool Classic::operator<(const Classic &rhs) const {
     return false;
 }
 
-// ------------------------------------operator>-----------------------------
-// Description: Operator overload for >
-// Precondition: None
-// Postcondition: None
+// -----------------------operator>-----------------------------
 bool Classic::operator>(const Classic &rhs) const {
     return !(*this < rhs) && (*this != rhs);
 }
 
-// ------------------------------------operator<=-----------------------------
-// Description: Operator overload for <=
-// Precondition: None
-// Postcondition: None
+// -----------------------operator<=-----------------------------
 bool Classic::operator<=(const Classic &rhs) const {
     return (*this < rhs) || (*this == rhs);
 }
 
-// ------------------------------------operator>=-----------------------------
-// Description: Operator overload for >=
-// Precondition: None
-// Postcondition: None
+// -----------------------operator>=-----------------------------
 bool Classic::operator>=(const Classic &rhs) const {
     return (*this > rhs) || (*this == rhs);
 }
 
-// ------------------------------------operator==-----------------------------
-// Description: Operator overload for ==
-// Precondition: None
-// Postcondition: None
+// -----------------------operator==-----------------------------
+// Classic specifically has to overload == due to duplicates
+// Can have same major actor or same title will return True
 bool Classic::operator==(const Classic &rhs) const {
     if(getGenre() == rhs.getGenre()){
         if(majorActor == rhs.majorActor || getTitle() == rhs.getTitle())
@@ -113,19 +102,13 @@ bool Classic::operator==(const Classic &rhs) const {
     return false;
 }
 
-// ------------------------------------operator!=-----------------------------
-// Description: Operator overload for !=
-// Precondition: None
-// Postcondition: None
+// -----------------------operator!=-----------------------------
 bool Classic::operator!=(const Classic &rhs) const {
     return !(*this == rhs);
 }
 
 
-// ------------------------------------operator<<-----------------------------
-// Description: Operator overload for <<
-// Precondition: None
-// Postcondition: None
+// -----------------------operator<<-----------------------------
 ostream &operator<<(ostream &output, const Classic &m) {
     if(&m != nullptr){
         cout << "Classic"
@@ -138,3 +121,4 @@ ostream &operator<<(ostream &output, const Classic &m) {
         output << "NULL";
     return output;
 }
+// end of operators

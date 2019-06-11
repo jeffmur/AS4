@@ -1,6 +1,18 @@
-// Jeffrey Murray CSS 343 B SP19
-// Created: 4/16/19
-// Last Modified:
+// ------------------------------------------------ bst.hpp --------------------------------------------------------
+// Jeffrey Murray CSS 343 B
+// Creation: 5/29/19
+// Modified: 6/11/19
+// -----------------------------------------------------------------------------------------------------------------
+// Purpose - template class for Binary Search Tree, allows for children of Movies to be passed it
+// -----------------------------------------------------------------------------------------------------------------
+// Notes:
+//       - Each child class contains a movie object as a standard movie template
+//       - Classic extends this class by adding major actor and release month
+//       - Allowing different object types to be placed in their own trees
+//       - A Classic, Drama, and Comedy Tree
+//
+// Input: data4commands.txt
+// -----------------------------------------------------------------------------------------------------------------
 
 #ifndef BINTREE_HPP
 #define BINTREE_HPP
@@ -35,11 +47,11 @@ public:
     void makeEmpty();						// Make the tree empty so isEmpty returns true
     bool insert(M* iteM);
 
-    void manageMovie(int custID, string data, M* &pointer, int amount);
-    void manageClassic(int custID, string data, M* &pointer, int amount);
-    bool retrieve(M* targetData, M* &pointer) const;
-    void printInOrder() const;
-    void display() const;
+    void manageMovie(int custID, string data, M* &pointer, int amount);     // return or borrow Movie (Drama and Comedy)
+    void manageClassic(int custID, string data, M* &pointer, int amount);   // return or borrow Classic
+    bool retrieve(M* targetData, M* &pointer) const;                        // if found returns true and points to Movie
+    void printInOrder() const;                                              // inOrder tree traversal printing
+    void display() const;                                                   // displays formatted Tree's Movie data
 
 private:
     struct Node {
@@ -62,12 +74,10 @@ private:
     }
 
 // utility functions
-    void deleteRecursive(Node*);
-    bool setRecursive(Node *base, M *data) const;
-    bool findRecursive(Node *base, M *target, M* &ptr) const;
-    bool compareRecur(Node *lhs, Node *rhs ) const;
-    void inorderHelper(Node *cur) const;
-    string removeSpace(string s);
+    void deleteRecursive(Node* base);                           // delete tree nodes recursively
+    bool setRecursive(Node *base, M *data) const;               // inserts tree nodes recursively
+    bool findRecursive(Node *base, M *target, M* &ptr) const;   // find movie data recursively (compares objects)
+    void inorderHelper(Node *base) const;                       // traversal recursive helper
 
 };
 
@@ -145,24 +155,6 @@ void BinTree<M>::deleteRecursive(Node *current) {
 }
 // end of makeEmpty
 
-//------------------------- compareRecur ---------------------------------
-// Returns true if no exception is found, otherwise, return false;
-// Note: Will return false if both trees are empty.
-template <class M>
-bool BinTree<M>::compareRecur( Node* lhs, Node* rhs ) const{
-    if(lhs != nullptr && rhs != nullptr) {
-        if (*lhs->data != *rhs->data)
-            return false;
-        else { // continue traversing the tree
-            compareRecur(lhs->right, rhs->right);
-            compareRecur(lhs->left, lhs->left);
-            return true;
-        }
-    }
-    return false;
-}
-// end of operators
-
 //------------------------- insert ---------------------------------
 // inserts M in to the BST and points to the new Node
 // Postconditions: M added to the tree
@@ -184,7 +176,7 @@ bool BinTree<M>::insert(M *item){
 }
 //------------------------- setRecursive ---------------------------------
 // Returns true if insertion is successful, otherwise returns false.
-// For each recusive check, the pointer must be NULL before adding
+// For each recursive check, the pointer must be NULL before adding
 // M to the tree.
 // Postconditions: New node added to the tree containing desired M
 template <class M>
@@ -219,40 +211,66 @@ bool BinTree<M>::setRecursive(Node *base, M *toAdd) const{
 }
 // end of insert
 
+//------------------------- manageMovie ---------------------------------
+// retrieves <M> (Movie) data in <M> BinTree, if True
+// modifies quantity of movie data +/- 1 (Expected)
+// Otherwise, leaves data unchanged
 template <class M>
-void BinTree<M>::manageMovie(int custID, string data, M *&pointer, int amount){
+void BinTree<M>::manageMovie(int custID, string data, M *&pointer, int amount) {
     M *MovieData = new M(data);
-    if(retrieve(MovieData, pointer))
-        if(pointer->quantity > 0)
-            pointer->quantity = pointer->quantity+amount;
+    // retrieve data
+    if (retrieve(MovieData, pointer)) {
+        // still available
+        if (pointer->quantity > 0)
+            pointer->quantity += amount;
+
+         // otherwise out of stock
         else
             cout << "OUT OF STOCK: " << custID << " cannot borrow " << pointer->getTitle() << endl;
+    }
     delete MovieData;
 }
 
-
+//------------------------- manageClassic ---------------------------------
+// retrieves Classic data in Classic BinTree, if True
+// modifies quantity of movie data +/- 1 (Expected)
+// Otherwise, leaves data unchanged
 template <class M>
 void BinTree<M>::manageClassic(int custID, string data, M *&pointer, int amount){
-    // flip data
-    string actor = removeSpace(data.substr(7, data.length()));
-    int month = stoi(data.substr(0, 2));
-    int year = stoi(data.substr(2,4));
+    // flip & prepare data
+    string token;
+    // parse entire string s
+    stringstream s1(data);
+    vector<string> result;
+    // add to result vector
+    while(getline(s1, token, ' ')){
+        result.push_back(token);
+    }
+    string actor = result[2]+" "+result[3];
+    int month = stoi(result[0]);
+    int year = stoi(result[1]);
+
     // assign data to flipped
-    Classic *MovieData = new Classic();
+    auto *MovieData = new Classic();
+
+    // set relevant data for classic comparision (==, >, & <)
     MovieData->setGenre('C');
     MovieData->setMajorActor(actor);
     MovieData->setReleaseYear(year);
     MovieData->setReleaseMonth(month);
 
-    if(retrieve(MovieData, pointer))
+    // retrieve data
+    if(retrieve(MovieData, pointer)){
+        // still available
         if(pointer->quantity > 0)
-            pointer->quantity = pointer->quantity+amount;
-        else {
-            cout << "OUT OF STOCK: " << custID << " cannot borrow " << pointer->getTitle() << endl;
-        }
+            pointer->quantity += amount;
 
+        else // otherwise out of stock
+            cout << "OUT OF STOCK: " << custID << " cannot borrow " << pointer->getTitle() << endl;
+    }
     delete MovieData;
 }
+// end of manage (return/borrow)
 
 //------------------------- retrieve ---------------------------------
 // Returns true if targetData is found, otherwise return false.
@@ -266,7 +284,7 @@ bool BinTree<M>::retrieve(M* targetData, M* &pointer) const{
         return true;
 
     pointer = nullptr;
-    cout << "ERROR: Could not locate that movie!" << endl;
+    cout << "ERROR: Could not locate " << targetData->getTitle() << "!" << endl;
     return false;
 
 }
@@ -293,7 +311,8 @@ bool BinTree<M>::findRecursive(Node *current, M *target, M* &ptr) const{
 }
 // end of retrieve
 
-
+//------------------------- display ---------------------------------
+// pretty print data in order (overloaded << operator to print in order)
 template <class M>
 void BinTree<M>::display() const{
     if(!isEmpty()){
@@ -331,7 +350,6 @@ void BinTree<M>::display() const{
         cout << "Empty Tree!" << endl;
 }
 
-
 //------------------------- printInOrder ---------------------------------
 // Displays NodeData via in-order traversal (Left, Root, Right)
 // Preconditions: NONE
@@ -339,7 +357,6 @@ template <class M>
 void BinTree<M>::printInOrder() const{
     inorderHelper(root);
 }
-
 
 //------------------------- inorderHelper ---------------------------------
 // Recursive function to perform in-order traversal of the tree
@@ -353,20 +370,7 @@ void BinTree<M>::inorderHelper(BinTree::Node *current) const {
     cout << *current->data << endl;
     inorderHelper(current->right);
 }
-// end of printInOrder
-
-template <class M>
-string BinTree<M>::removeSpace(string old){
-    string result;
-    int l = old.length();
-    if(old[0] == *" "){
-        result = old.substr(1, l);
-    }
-    if(old[l-1] == *" "){
-        result = old.substr(0, l-1);
-    }
-    return result;
-}
+// end of display
 
 
 

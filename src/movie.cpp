@@ -5,25 +5,34 @@
 #include <vector>
 #include <sstream>
 
-//------------------- constructors/destructor  -------------------------------
+// ------------------- constructors/destructor  -------------------------------
 Movie::Movie(){ }
 Movie::~Movie() { }                       // needed so data is deleted properly
 
+// ------------------- setData -------------------
+// Parses raw data (string s) via array
+// sets Movie Data via setters
+//
 void Movie::setData(const string &s){
+    // parse raw data
     stringstream ss(s);
     vector<string> result;
     string token;
     char del = ',';
+
+    // add to array
     while(getline(ss, token, del)){
         result.push_back(token);
     }
+
+    // set Movie Data
     setGenre(result[0][0]);
     setQuantity(stoi(result[1]));
     setDirector(removeSpace(result[2]));
     setTitle(removeSpace(result[3]));
     setReleaseYear(stoi(result[4]));
 }
-// -------------------- Setter ----------------
+// -------------------- Setters --------------------
 void Movie::setDirector(string director) { Movie::director = director; }
 
 void Movie::setTitle(string title) { Movie::title = title; }
@@ -34,7 +43,7 @@ void Movie::setGenre(char genre) { Movie::genre = genre; }
 
 void Movie::setReleaseYear(int releaseYear) { Movie::releaseYear = releaseYear; }
 
-// -------------- Getter ------------------------
+// -------------------- Getters --------------------
 
 int Movie::getQuantity() const { return quantity; }
 
@@ -46,7 +55,7 @@ const string &Movie::getTitle() const { return title; }
 
 int Movie::getReleaseYear() const { return releaseYear; }
 
-//------------------------- operator==,!= ------------------------------------
+// -------------------- operator==,!= --------------------
 bool Movie::operator==(const Movie& rhs) const {
     if(genre == rhs.genre){
         if(title == rhs.title)
@@ -58,10 +67,9 @@ bool Movie::operator!=(const Movie& rhs) const {
     return !(*this == rhs);
 }
 
-// ------------------------------------removeSpace-----------------------------
+// -------------------- removeSpace --------------------
 // Description: Removes all spaces in the given string
-// Precondition: None
-// Postcondition: None
+//
 string Movie::removeSpace(string old){
     string result;
     int l = old.length();

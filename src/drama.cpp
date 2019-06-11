@@ -3,19 +3,15 @@
 #include <sstream>
 #include <iomanip>
 
-//Destructor
+// Destructor
 Drama::~Drama() { }
 
-//Constructor, accepts a string
+// Constructor, accepts a string
 Drama::Drama(const string &s) : Movie(){
     setData(s);
 }
 
-//   dramas (‘D’) are sorted by Director, then Title
-// ------------------------------------operator<-----------------------------
-// Description: Operator overload for <
-// Precondition: None
-// Postcondition: None
+// -----------------------------operator<-----------------------------
 bool Drama::operator<(const Movie &rhs) const {
     // compare by Title
     if(getDirector() < rhs.getDirector())
@@ -30,44 +26,22 @@ bool Drama::operator<(const Movie &rhs) const {
     return false;
 }
 
-// ------------------------------------operator>-----------------------------
-// Description: Operator overload for >
-// Precondition: None
-// Postcondition: None
+// -----------------------------operator>-----------------------------
 bool Drama::operator>(const Movie &rhs) const {
-    // compare by Title
-    if(getDirector() > rhs.getDirector())
-        return true;
-
-        // else compare year if titles' are equal
-    else if(getDirector() == rhs.getDirector()){
-        if(getTitle() > rhs.getTitle())
-            return true;
-    }
-    // otherwise false
-    return false;
+    return !(*this < rhs) && (*this != rhs);
 }
 
-// ------------------------------------operator<=-----------------------------
-// Description: Operator overload for <=
-// Precondition: None
-// Postcondition: None
+// -----------------------------operator<=-----------------------------
 bool Drama::operator<=(const Drama &rhs) const {
     return (*this < rhs) || (*this == rhs);
 }
 
-// ------------------------------------operator>=-----------------------------
-// Description: Operator overload for ==
-// Precondition: None
-// Postcondition: None
+// -----------------------------operator>=-----------------------------
 bool Drama::operator>=(const Drama &rhs) const {
     return (*this > rhs) || (*this == rhs);
 }
 
-// ------------------------------------operator<<-----------------------------
-// Description: Operator overload for <<
-// Precondition: None
-// Postcondition: None
+// -----------------------------operator<<-----------------------------
 ostream &operator<<(ostream &output, const Drama &m) {
     if(&m != nullptr){
         cout << "Drama"

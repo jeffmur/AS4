@@ -1,12 +1,12 @@
 #include "hash.h"
 
-//Constructor, accepts an initial size
+// Constructor, must have an initial size
 Hash::Hash(int size){
     SIZE = size;
     table.resize(size);
 }
 
-//Destructor
+// Destructor
 Hash::~Hash(){
     for(int i = 0; i < SIZE; i++){
         Node* cur = table[i];
@@ -21,25 +21,26 @@ Hash::~Hash(){
 }
 
 // ------------------------------------hashFunction-----------------------------
-// Description: A simple hash function, hashes the given id into an index
-// Precondition: None
-// Postcondition: None
+// A simple hash function, hashes the given id by prime number into an index
+//
 int Hash::hashFunction(int id) {
     return id % SIZE;
 }
 
 // ------------------------------------insert-----------------------------
 // Description: Inserts the given customer into the hash table
-// Precondition: None
-// Postcondition: Customer is in the hash table
+// Has implementation to have no collision
+//
 void Hash::insert(Customer &customer) {
+    // hash to index
     int index = hashFunction(customer.ID);
-    //cout << customer << " " << index << endl;
 
+    // create new customer Node
     Node* toAdd = new Node();
     toAdd->data = &customer;
     toAdd->next = nullptr;
 
+    // O(1) insertion
     if(table[index] != NULL){
         Node* old = table[index];
         toAdd->next = old;
@@ -52,8 +53,9 @@ void Hash::insert(Customer &customer) {
 // Description: Searches the hash table for a customer with the given
 // customer id, then returns a pointer to it. Returns nullptr if not
 // found
-// Precondition: None
-// Postcondition: None
+// Best Case: O(1)
+// Worst Case: O(N) via Linked List
+//
 Customer* Hash::find(int custID) {
     int index = hashFunction(custID);
     Node* cur = table[index];
@@ -70,8 +72,8 @@ Customer* Hash::find(int custID) {
 // ------------------------------------remove-----------------------------
 // Description: Searches the hash table for a customer with the given
 // customer id, then deletes the customer
-// Precondition: None
-// Postcondition: Customer with the given id is no longer in the hash table
+// Post condition: Customer with the given id is no longer in the hash table
+//
 bool Hash::remove(int custID) {
 
     // if custID exits
@@ -110,10 +112,7 @@ bool Hash::remove(int custID) {
     return false;
 }
 
-// ------------------------------------display-----------------------------
-// Description: Prints out the contents of the hash table
-// Precondition: None
-// Postcondition: None
+// -----------------------------display-----------------------------
 void Hash::display(){
     printf("\nIndex: \t\t Links: \n");
     for(int i = 0; i < SIZE; i++){
